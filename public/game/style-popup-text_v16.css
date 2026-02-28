@@ -1,0 +1,68 @@
+
+
+/*************************************************
+   	    		ANGRIFF: TEXT-POPUP
+ *************************************************/
+
+   
+/*** Design Text ***/
+.popup-text {
+
+	position: absolute;
+	top: 0%;
+
+	transform: translateY(40px); 
+	pointer-events: none;
+
+	/* Font wie Button-Text (bigger)*/
+	font-family: 'VT323', monospace;
+	color: #98b598;
+	font-size: 30px;
+	text-transform: uppercase;
+	letter-spacing: 1px; /* oder 2px? */
+
+}
+
+/*** Pop-Up Animation ***/
+.popup-text.animation {
+
+	animation-name: popup;
+    animation-duration: 2s;
+    animation-fill-mode: forwards; /* damit ani im state von last frame bleibt & net zurückspringt */
+
+}
+
+
+/* Movement/Animation-Frames (über %)*/
+@keyframes popup {
+
+	/* Startposition */
+	0% {
+		opacity: 0;
+    	transform: translateY(-30px);
+	}
+
+	/* Pop-up */
+	1% {
+		opacity: 1;
+		transform: translateY(-30px);
+	}
+
+	/* Movement up */
+	70% {
+    	opacity: 1;
+    	transform: translateY(-90px);
+	}
+
+	/* Verblasse between 70-100 - aber STAY wie bei 70% (nicht back to bottom) */
+	100% {
+    	opacity: 0;
+    	transform: translateY(-90px);
+	}
+}
+
+
+
+
+
+

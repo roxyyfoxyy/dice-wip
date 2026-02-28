@@ -1,0 +1,42 @@
+
+/* ************************************************
+   			SPIELFELD: GRUNDGERÜST
+   ************************************************ */
+
+.karten-wrap {
+
+	display: flex;
+	flex-direction: row;
+
+	justify-content: center;
+	padding: 10px 10px 10px 10px;  /* top right bottom left */
+
+}
+
+.punkte-wrap {
+
+	display: flex;
+	align-items: center;
+	justify-content: right;
+
+}
+
+.wuerfel-wrap {
+
+	display: flex;
+	flex-direction: row;
+
+	justify-content: center;
+	margin-bottom: 25px; /* bissl mehr Abstand zu Button */
+	gap: 15px;
+
+}
+
+.button-wrap {
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
