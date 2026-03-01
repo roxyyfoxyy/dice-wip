@@ -170,14 +170,13 @@
 	function angreifen(gegnerKarte) {
 		console.log(`Angriff auf ${gegnerKarte.id}`);
 
-		const treffer = checkGegnerTreffer(gegnerKarte.id);		//aus matching.js
+		const result = checkGegnerTreffer(gegnerKarte.id);		//aus matching.js
 		const popup = document.querySelector(".popup-text"); 
 
 
 		// TREFFER
-		if (treffer) {
+		if (result.success) {
 			console.log("Treffer - Gegner wird besiegt");
-			popup.textContent = "TREFFER!"; 
 
 			// Punkte inkrementieren - alle +1 (SPÄTER: variierend je nach Gegner)
 			// & Mindest-Angriff pro Runde CHECK (so kein -HP beim nächsten Passen)
@@ -185,6 +184,21 @@
 			gameState.schonAngegriffen = true
 			saveGameState();	// für Refresh-Save
 			
+
+			// ANIMATION: GEGNER TREFFER-ANIMATION
+			const slot = result.slot;
+			gegnerKarte.classList.add("beat");
+
+			setTimeout(() => {
+				gegnerKarte.classList.remove("beat");
+				nachruecken(slot);
+				gegnerKarte.classList.add("spawn");
+			}, 500);
+
+			
+			
+			// ANIMATION: POPUP-TEXT TREFFER
+			popup.textContent = "TREFFER!"; 
 
 			// Animation-Reset (für wenn vorher schon aktiviert)
 			popup.classList.remove("animation");
@@ -199,7 +213,7 @@
 	
 		}
 
-		// UNGÜLTIG
+		// ANIMATION: POPUP-TEXT UNGÜLTIG
 		console.log("Falsche Würfelkombo - Gegner bleibt");
 		popup.textContent = "Falsche Würfelkombination!";
 

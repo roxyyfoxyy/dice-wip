@@ -84,11 +84,10 @@
 
 		// 3. Prüfe, ob User matched -> weil dann nachruecken
 		if (match(gegner.kombi)) {
-			nachruecken(slot);
-			return true; 				// Treffer -> Erfolg
+			return { success: true, slot: slot }; 				// Treffer -> Erfolg
 		}
 
-		return false; 					// kein Treffer -> Misserfolg
+		return { success: false }; 					// kein Treffer -> Misserfolg
 	};
 
 

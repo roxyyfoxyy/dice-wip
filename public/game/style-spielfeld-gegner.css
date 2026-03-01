@@ -94,6 +94,7 @@
 
 /*** Gegnerwürfel-Design ***/
 .gegner-wuerfel {
+	position: relative;
 	width: 40px;
 	height: 40px;
 
@@ -102,4 +103,15 @@
     border-radius: 8px;
     box-shadow: 0 0 12px #000000cc, 0 0 6px #4a7a4a4d inset;
 
+}
+
+.gegner-auge {
+	position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    background: #98b598;
+    border-radius: 100%;
+    box-shadow: 0 0 5px #6aff6a, 0 0 2px #6aff6a inset;
 }
