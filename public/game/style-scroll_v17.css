@@ -1,0 +1,68 @@
+
+
+
+/* ************************************************
+					ALLGEMEIN
+   ************************************************ */
+
+/* COLOR PALETTE
+	- BG 							#0a0f0a
+	- text 							#98b598
+
+	- borders 						#4a7a4a4d			//same bei kartenhover (border + shadow) && button
+	- border shadow out				#000000cc			//dark, für "hervorgehoben"-Effekt
+	- border shadow in				#4a7a4a4d			//green wie border, für "cyber"-Effekt
+
+	- fill 							#141914d9
+	- fill button					#0a0f0a
+
+	- scrollbar-BG					#0a0f0a
+	- scrollbar
+
+
+EINZELOPFER
+	- augen							#98b598
+	- augen shadow					#6aff6a 			//für besseren glow (oder #6aff6a55 - naah, more GLOW)
+
+	- border wuerfel:lock			#98b598 			//(augen) oder #4a7a4a (button-rand fav!) oder #6aff6a (falls leuchtender)
+	- shadow out					#6aff6a55 			//(oder #4a7a4a4d - naah)
+	- shadow in						#4a7a4a4d 			//oder #6aff6a88 falls leuchtender
+	
+	- border + text button:hover	#4a7a4a 			//so leuchtender (bloß nicht auch #6aff6a55 zuuu viel glow xD)
+
+*/
+
+
+/* ************************************************
+   				scroll-bar
+   ************************************************ */
+
+
+#game-wrapper::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Background */
+#game-wrapper::-webkit-scrollbar-track {
+    background: #0a0f0a;		/* wie BG */
+}
+
+/* Scroll-Element */
+#game-wrapper::-webkit-scrollbar-thumb {
+    background: #4a7a4a4d;
+    border-radius: 3px;
+}
+
+/* Hover */
+#game-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #4a7a4a4d;		/* Hover-Farbe wie Default*/
+}
+
+
+/* Für Firefox */
+/*
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #141914d9 #0a0f0a; /* dunkler, weil thinner not possible || wie BG 
+}
+	*/ 

@@ -28,41 +28,45 @@ EINZELOPFER
 */
 
 
-
-/* MIT VARIOUS WRAPPER */
+/* OK LISTEN!! BE CAREFUL!! ALWAYS DO A COPY WHEN CHANGING SHIT! iykyk */
 	
 body {
     
 	background: #0a0f0a;
     font-family: 'VT323', monospace;
     color: #98b598;
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: hidden;	/* so äußeres "Doppelt gemoppelt"-Scrollen verhindern - u don't trust? setz mal auf visible/auto */
 }
 
 
 /* Game-Fenster - wie body */
 #game-wrapper {
 
-	display: flex;
-	height: 100dvh;
+	display: flex;	/* so mittig */
+	height: 100dvh; /* nicht 100%, sonst kein y-scroll -> bottom-cuts */
 	justify-content: center; 
-	align-items: center; 
-	overflow: hidden;
+	align-items: flex-start; /* nicht mehr center, sonst top-bottom-cuts bis 400%-zoom again iykyk*/
+	overflow-x: hidden; /* oder auto - NICHT visible, sonst kein y-scroll -> bottom-cuts*/
+	overflow-y: visible; /* oder auto - das einzige Scroll, das wir innerhalb wollen!! */
+
+	/*padding-top: 10px; nicht mehr nötig? */
 }
 
 
 /* Spielfeld - Wrapper für center */
 #game-board {
 
-	display: grid;
+	display: grid; /* oder flex? */
 	position: relative;
 
-	width: 1600px; 
-	/*height: 900px;*/
+	width: auto; /* oder 1600px geht auch*/
+	/*height: auto;*/ /* weglassen oder auto */
 	
 	place-items: center;
 	box-sizing: border-box;
-	overflow: hidden;
+	overflow-x: visible;	/* auf gar keinen Fall auto oder hidden! sonst hori-abgeschnitten*/
+	overflow-y: visible;	/* auf gar keinen Fall auto oder hidden! sonst hori-abgeschnitten*/
 	transform-origin: center center;
 }
 
@@ -73,7 +77,8 @@ body {
 	min-height: 100%;
 	min-width: 320px;
 	position: relative;
-	overflow: hidden;
+	/*overflow-x: hidden; /* no diff, ob auto, visible, hidden?*/
+	/*overflow-y: hidden; /* no diff, ob auto, visible, hidden?*/
 	 
 }
 
@@ -88,7 +93,7 @@ body {
 
 
 
-/* Zoom-Settings */
+/* Zoom-Settings 
 .game-zoom {
 	zoom: var(--game-zoom)
 }
@@ -96,3 +101,4 @@ body {
 .framework-parts-zoom {
 	zoom: var(--framework-parts-zoom)
 }
+	*/

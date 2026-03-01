@@ -20,10 +20,8 @@ export default function GameWindow({ children }) {
 
       {/* CONTENT */}
       <div className="container">
-        <div className="content-center">
-          <div className="backgroundbox">
-            {children}
-          </div>
+        <div className="backgroundbox">
+          {children}
         </div>
       </div>
 

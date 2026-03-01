@@ -7,40 +7,6 @@
 
 
 /* ************************************************
-   SCROLLBAR
-   ************************************************ */
-
-::-webkit-scrollbar {
-    width: 4px;
-}
-
-/* Background */
-::-webkit-scrollbar-track {
-    background: #0a0f0a;		/* wie BG */
-}
-
-/* Scroll-Element */
-::-webkit-scrollbar-thumb {
-    background: #4a7a4a4d;
-    border-radius: 3px;
-}
-
-/* Hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #4a7a4a4d;		/* Hover-Farbe wie Default*/
-}
-
-
-/* Für Firefox */
-/*
-html {
-    scrollbar-width: thin;
-    scrollbar-color: #141914d9 #0a0f0a; /* dunkler, weil thinner not possible || wie BG 
-}
-*/ 
-
-
-/* ************************************************
    BODY & BACKGROUNDPIC MIT FILTER
    ************************************************ */
 
@@ -139,24 +105,16 @@ body::after {
 
     padding-top: 0;
     padding-bottom: 0;
-
-    overflow: visible;
-
 }
 
 
 
 .container {
     display: flex;
-    flex: 1;
     justify-content: center;
 
-    min-height: calc(100vh - var(--topbar-h) - var(--bottombar-h));
+    min-height: calc(100dvh - var(--topbar-h) - var(--bottombar-h));
     position: relative;
-
-    overflow: visible;
-
-    /* outline: 2px solid green; */
     
 }
 
@@ -252,22 +210,18 @@ body::after {
 
 .backgroundbox {
     display: flex;
-    flex: 1;
 	 
 	width: 100%;
-    min-height: auto;
-    height: 100%;
+    min-height: 100%;
 
     background: #141914eb;
     color: #d8e8d8;
-	padding: 10px;
+	padding: 20px;
 
     border-left: 1px solid #4a7a4a66;
 	border-right: 1px solid #4a7a4a66;
 
-    /*outline: 2px solid red; */
-
-    
+    outline: 2px solid red;
 
 }
 
@@ -284,9 +238,6 @@ body::after {
     /* padding-bottom: 120px; /* version 2 */ /* version 3 webiger Abstand zu bars */
 
     /* Alternativ */
-
-    /*outline: 2px solid yellow; */
-
     
 }
 
@@ -299,8 +250,6 @@ body::after {
 
     overflow: hidden;
     position: relative;
-
-    /*outline: 2px solid purple;*/
 }
 
 .box-pic {
@@ -579,7 +528,6 @@ button {
 .topbar,
 .bottombar {
   pointer-events: auto;
-  
 }
 
 .backgroundbox {
