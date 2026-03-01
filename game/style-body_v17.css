@@ -1,0 +1,104 @@
+
+/* ************************************************
+					ALLGEMEIN
+   ************************************************ */
+
+/* COLOR PALETTE
+	- BG 							#0a0f0a
+	- text 							#98b598
+
+	- borders 						#4a7a4a4d			//same bei kartenhover (border + shadow) && button
+	- border shadow out				#000000cc			//dark, für "hervorgehoben"-Effekt
+	- border shadow in				#4a7a4a4d			//green wie border, für "cyber"-Effekt
+
+	- fill 							#141914d9
+	- fill button					#0a0f0a
+
+
+EINZELOPFER
+	- augen							#98b598
+	- augen shadow					#6aff6a 			//für besseren glow (oder #6aff6a55 - naah, more GLOW)
+
+	- border wuerfel:lock			#98b598 			//(augen) oder #4a7a4a (button-rand fav!) oder #6aff6a (falls leuchtender)
+	- shadow out					#6aff6a55 			//(oder #4a7a4a4d - naah)
+	- shadow in						#4a7a4a4d 			//oder #6aff6a88 falls leuchtender
+	
+	- border + text button:hover	#4a7a4a 			//so leuchtender (bloß nicht auch #6aff6a55 zuuu viel glow xD)
+
+*/
+
+
+/* OK LISTEN!! BE CAREFUL!! ALWAYS DO A COPY WHEN CHANGING SHIT! iykyk */
+	
+body {
+    
+	background: #0a0f0a;
+    font-family: 'VT323', monospace;
+    color: #98b598;
+	overflow-x: hidden;
+	overflow-y: hidden;	/* so äußeres "Doppelt gemoppelt"-Scrollen verhindern - u don't trust? setz mal auf visible/auto */
+}
+
+
+/* Game-Fenster - wie body */
+#game-wrapper {
+
+	display: flex;	/* so mittig */
+	height: 100dvh; /* nicht 100%, sonst kein y-scroll -> bottom-cuts */
+	justify-content: center; 
+	align-items: flex-start; /* nicht mehr center, sonst top-bottom-cuts bis 400%-zoom again iykyk*/
+	overflow-x: hidden; /* oder auto - NICHT visible, sonst kein y-scroll -> bottom-cuts*/
+	overflow-y: visible; /* oder auto - das einzige Scroll, das wir innerhalb wollen!! */
+
+	/*padding-top: 10px; nicht mehr nötig? */
+}
+
+
+/* Spielfeld - Wrapper für center */
+#game-board {
+
+	display: grid; /* oder flex? */
+	position: relative;
+
+	width: auto; /* oder 1600px geht auch*/
+	/*height: auto;*/ /* weglassen oder auto */
+	
+	place-items: center;
+	box-sizing: border-box;
+	overflow-x: visible;	/* auf gar keinen Fall auto oder hidden! sonst hori-abgeschnitten*/
+	overflow-y: visible;	/* auf gar keinen Fall auto oder hidden! sonst hori-abgeschnitten*/
+	transform-origin: center center;
+}
+
+
+/* Spielfeld - Wrapper für complete-content */
+.game-content {
+
+	min-height: 100%;
+	min-width: 320px;
+	position: relative;
+	/*overflow-x: hidden; /* no diff, ob auto, visible, hidden?*/
+	/*overflow-y: hidden; /* no diff, ob auto, visible, hidden?*/
+	 
+}
+
+
+/* Spielfeld - Wrapper für single-elements (Karten-, Würfel-, Buttonfeld */
+.game-element {
+
+	margin-bottom: 10px;
+	margin-top: 10px;
+
+}
+
+
+
+/* Zoom-Settings 
+.game-zoom {
+	zoom: var(--game-zoom)
+}
+
+.framework-parts-zoom {
+	zoom: var(--framework-parts-zoom)
+}
+	*/

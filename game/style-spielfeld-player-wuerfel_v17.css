@@ -1,0 +1,127 @@
+
+
+/* ************************************************
+   					PLAYER WÜRFEL
+   ************************************************ */
+
+
+.wuerfel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	position: relative;
+	 
+	width: 60px;
+    height: 60px;
+
+    background: #141914d9;
+    border: 1px solid #4a7a4a4d;
+    border-radius: 12px;
+    box-shadow: 0 0 12px #000000cc, 0 0 6px #4a7a4a4d inset;
+}
+
+
+/*** "Klickbar" für Würfelauswahl ***/
+.wuerfel {
+	cursor: pointer;
+    transition: 0.2s ease;
+}
+
+
+/*** Design wenn locked ***/
+.wuerfel.locked {
+
+    opacity: 0.6;
+    border-color: #4a7a4a;  /* aus augenfarbe oder button-rand (fav)?*/
+    box-shadow: 0 0 6px #6aff6a55, 0 0 12px #4a7a4a4d inset;
+
+	/* filter: grayscale(90%);*/  /* LIEBER FÜR WENN GEGNER ES 7LOCKED !!!*/ 
+	 
+}
+
+
+
+
+/* ************************************************
+   					WÜRFELAUGEN
+   ************************************************ */
+
+/*** Design ***/
+.wuerfel .auge {
+	position: absolute;
+	 
+    width: 10px;
+    height: 10px;
+	 
+    background: #98b598;
+    border-radius: 100%;
+    box-shadow: 0 0 8px #6aff6a, 0 0 4px #6aff6a inset;
+    
+}
+
+
+
+/*** Augen-Position ***/
+
+.a1 { top: 20%; left: 20%; }			/* Oben-Links - Auge 1 */
+.a2 { top: 20%; right: 20%; }			/* Oben-Rechts - Auge 2 */
+
+
+.a3 { top: 50%; left: 20%; transform: translateY(-50%);} 			/* Mitte-Links Auge 3 */
+.a4 { top: 50%; left: 50%; transform: translate(-50%, -50%); } 		/* Mitte-Mitte Auge 4  */
+.a5 { top: 50%; right: 20%; transform: translateY(-50%); } 			/* Mitte-Rechts Auge 5  */
+
+.a6 { bottom: 20%; left: 20%; }			/* Unten-Links - Auge 6 */
+.a7 { bottom: 20%; right: 20%; }		/* Unten-Rechts - Auge 7 */
+
+
+
+
+
+/* ************************************************
+   					WÜRFEL-BUTTON
+   ************************************************ */
+.wuerfel-button {
+    position: relative;
+	 
+    width: 150px;
+    height: 55px;
+
+	margin-bottom: 8px;  /* gap*/
+
+    background: #0a0f0a; 
+    border: 1px solid #4a7a4a4d;
+
+	font-family: 'VT323', monospace;
+    color: #98b598;
+    font-size: 26px;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* oder 2px? */
+}
+
+
+/* Button-Zuschnitt wie bei Menu-Button -- Same oder weg?? */
+.wuerfel-button {
+clip-path: polygon(
+                    10px 0, 
+                    100% 0, 
+                    100% calc(100% - 10px), 
+                    calc(100% - 10px) 100%, 
+                    0 100%, 
+                    0 10px);
+}
+
+
+
+/*** "Klickbar" + Zoom-Hover ***/
+.wuerfel-button {
+	cursor: pointer;
+	transition: 0.2s ease; /* perrrfekt */
+}
+
+.wuerfel-button:hover {
+	border-color: #4a7a4a;
+	color: #4a7a4a;
+ 
+	transform: scale(1.05);
+}

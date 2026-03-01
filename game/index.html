@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<!-- KOMPLETTE INDEX.HTML -->
+
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>GAME</title>
+
+	<!-- FONT -->
+	<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+	<!-- CSS (hier als RELATIVE PFADE ./ wegen React) -->
+	<link rel="stylesheet" href="./style-test_v17.css">
+	
+	<link rel="stylesheet" href="./style-body_v17.css">
+	<link rel="stylesheet" href="./style-scroll_v17.css">
+
+	<link rel="stylesheet" href="./style-spielfeld-layout_v17.css">
+	<link rel="stylesheet" href="./style-spielfeld-gegner_v17.css">
+	<link rel="stylesheet" href="./style-spielfeld-player-wuerfel_v17.css">
+
+	<link rel="stylesheet" href="./style-punkte-hp_v17.css">
+
+	<link rel="stylesheet" href="./style-popup-text_v17.css">
+</head>
+
+
+<body>
+	<div id="game-wrapper">
+		<div id="game-board">
+			<div class="game-content">
+				<div class="game-zoom">
+
+					<!-- SPIELFELD: Punkte & HP-Anzeige -->
+					<div class="game-element punkte-wrap">
+						<div class="punkte-hp">
+							Punkte: <span id="punkte">0</span> <br>
+							HP: <span id="hp">10</span>
+						</div>
+					</div>
+					<!-- SPIELFELD: Punkte & HP-Anzeige ENDE -->
+
+
+					<!-- SPIELFELD: Stapel & Karten -->
+					<div class="game-element karten-wrap">
+
+						<!-- STAPEL -->
+						<div class="stapel-container">
+							<div class="stapel">STAPEL</div>
+						</div>
+						<!-- STAPEL ENDE -->
+
+
+						<!-- GEGENERKARTEN MIT GEGNER-WÜRFEL -->
+						<div class="gegner-container">
+
+
+							<!-- Gegner 1 -->
+							<div class="single-container">
+								<div class="karten" id="gegner1">GEGNER 1 </div>   <!-- bild und so, iykyk -->
+
+									<div class="gw-container">
+										<div class="gegner-wuerfel" id="gw11"></div>
+										<div class="gegner-wuerfel" id="gw12"></div>
+										<div class="gegner-wuerfel" id="gw13"></div>
+										<div class="gegner-wuerfel" id="gw14"></div>
+									</div>
+							</div>
+
+
+							<!-- Gegner 2 -->
+								<div class="single-container">
+									<div class="karten" id="gegner2">GEGNER 2 </div> 
+
+										<div class="gw-container">
+											<div class="gegner-wuerfel" id="gw21"></div>
+											<div class="gegner-wuerfel" id="gw22"></div>
+											<div class="gegner-wuerfel" id="gw23"></div>
+											<div class="gegner-wuerfel" id="gw24"></div>
+										</div>
+								</div>
+
+
+								<!-- Gegner 3 -->
+								<div class="single-container">
+									<div class="karten" id="gegner3">GEGNER 3 </div>
+
+										<div class="gw-container">
+											<div class="gegner-wuerfel" id="gw31"></div>
+											<div class="gegner-wuerfel" id="gw32"></div>
+											<div class="gegner-wuerfel" id="gw33"></div>
+											<div class="gegner-wuerfel" id="gw34"></div>
+										</div>
+								</div>
+
+
+								<!-- Gegner 4 -->
+								<div class="single-container">
+									<div class="karten" id="gegner4">GEGNER 4 </div>
+
+										<div class="gw-container">
+											<div class="gegner-wuerfel" id="gw41"></div>
+											<div class="gegner-wuerfel" id="gw42"></div>
+											<div class="gegner-wuerfel" id="gw43"></div>
+											<div class="gegner-wuerfel" id="gw44"></div>
+										</div>
+								</div>
+
+						</div>
+						<!-- KARTEN MIT GEGNER-WÜRFEL ENDE -->
+					</div>
+					<!-- SPIELFELD: Stapel & Karten ENDE -->
+
+
+
+					<!-- SPIELFELD: Spielerwürfel -->
+					<div class="game-element wuerfel-wrap">
+						<div class="wuerfel" id="wuerfel1"></div>
+						<div class="wuerfel" id="wuerfel2"></div>
+						<div class="wuerfel" id="wuerfel3"></div>
+						<div class="wuerfel" id="wuerfel4"></div>
+						<div class="wuerfel" id="wuerfel5"></div>
+					</div> 
+					<!-- SPIELFELD: Spielerwürfel ENDE -->
+
+					<!-- SPIELFELD: Buttons -->
+					<div class="game-element button-wrap">
+
+						<!-- Wurfanzahl-Anzeige -->
+						<div class="punkte-hp">
+							<span id="wurfZaehler"></span>
+						</div>
+
+						<!-- Buttons -->
+						<button class="wuerfel-button" id="wuerfeln">Würfeln</button>
+						<button class="wuerfel-button" id="passen">Passen</button>
+
+					</div>
+					<!-- SPIELFELD: Buttons ENDE -->
+
+
+					<!-- EFFEKT: Erfolg- & Misserfolg -->
+					<div class="popup-text"></div> 
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- JS (hier als RELATIVE PFADE ./ wegen React) -->
+	
+	<script src="./a_wuerfel_v17.js"></script>
+	<script src="./c_pool_v17.js"></script>
+	<script src="./d_matching_v17.js"></script>
+	
+	<script src="./e_gamestate_v17.js"></script>
+	<script src="./f_punkte-hp_v17.js"></script>
+	<script src="./e_savegamestate_v17.js"></script>
+	
+	<script src="./g_gameover_v17.js"></script>
+	
+	<script src="./b_runde_v17.js"></script>
+	<script src="./main_v17.js"></script>
+
+	<script src="./scaler_v17.js"></script>
+
+
+</body>
+</html>
