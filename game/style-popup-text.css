@@ -27,7 +27,7 @@
 .popup-text.animation {
 
 	animation-name: popup;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
     animation-fill-mode: forwards; /* damit ani im state von last frame bleibt & net zurückspringt */
 
 }
@@ -39,25 +39,25 @@
 	/* Startposition */
 	0% {
 		opacity: 0;
-    	transform: translateY(-30px);
+    	transform: translateY(25px);
 	}
 
 	/* Pop-up */
 	1% {
 		opacity: 1;
-		transform: translateY(-30px);
+		transform: translateY(25px);
 	}
 
 	/* Movement up */
 	70% {
     	opacity: 1;
-    	transform: translateY(-90px);
+    	transform: translateY(-20px);
 	}
 
 	/* Verblasse between 70-100 - aber STAY wie bei 70% (nicht back to bottom) */
 	100% {
     	opacity: 0;
-    	transform: translateY(-90px);
+    	transform: translateY(-20px);
 	}
 }
 

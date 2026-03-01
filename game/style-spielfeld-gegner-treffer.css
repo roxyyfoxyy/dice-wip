@@ -1,0 +1,170 @@
+/* ************************************************
+   			ANIMATION 0: Gegner Spawn
+   ************************************************ */
+
+@keyframes spawn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+        filter: blur(6px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: none;
+    }
+}
+
+.karten.spawn {
+    animation: spawn 0.3s ease;
+}
+
+
+
+/* ************************************************
+   			ANIMATION 1: Tilt zoom dissolve forward
+   ************************************************ */
+
+/*
+
+@keyframes tiltZoom_a {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-4px, 2px); }
+    40% { transform: translate(4px, -2px); }
+    60% { transform: translate(-3px, 1px); }
+    80% { transform: translate(3px, -1px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes tiltZoom_b {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+        filter: none;
+    }
+    40% {
+        filter: brightness(2);
+    }
+    100% {
+        transform: scale(1.2) rotate(3deg);
+        opacity: 0;
+        filter: blur(4px);
+    }
+}
+
+
+.karten.beat {
+    animation: tiltZoom_a 0.2s ease,
+               tiltZoom_b 0.5s ease forwards;
+}
+
+*/
+
+
+
+/* ************************************************
+   			ANIMATION 2: Glowy neon jump 
+   ************************************************ */
+
+
+@keyframes neon {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 12px #6aff6a55;
+    }
+    60% {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px #4a7a4a4d;
+        filter: brightness(2);
+    }
+    80% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+        filter: blur(6px);
+    }
+}
+
+.karten.beat {
+    animation: neon 0.5s ease forwards;
+}
+    
+
+
+
+
+/* ************************************************
+   			ANIMATION 3: Shaking/Wobble Glitch
+   ************************************************ */
+
+/*
+
+   @keyframes wobbleGlitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-5px, 2px); }
+    40% { transform: translate(5px, -2px); }
+    60% { transform: skewX(10deg); }
+    80% { filter: hue-rotate(90deg); }
+    100% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+}
+
+.karten.beat {
+    animation: wobbleGlitch 0.4s ease forwards;
+}
+
+*/
+
+
+/* ************************************************
+   			ANIMATION 4: PulseWave
+   ************************************************ */
+/*
+
+@keyframes pulseWave {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0px #4a7a4a4d;
+    }
+    40% {
+        box-shadow: 0 0 30px 10px #6aff6a55;
+    }
+    100% {
+        transform: scale(1.15);
+        opacity: 0;
+    }
+}
+
+.karten.beat {
+    animation: pulseWave 0.6s ease forwards;
+}
+
+*/
+
+
+/* ************************************************
+   			ANIMATION 5: Disintegrate nach oben
+   ************************************************ */
+/*
+
+
+@keyframes disintegrate {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px) scale(1.1);
+    }
+}
+
+.karten.beat {
+    animation: disintegrate 0.5s ease forwards;
+}
+
+*/

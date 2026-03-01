@@ -50,7 +50,7 @@ body {
 	overflow-x: hidden; /* oder auto - NICHT visible, sonst kein y-scroll -> bottom-cuts*/
 	overflow-y: visible; /* oder auto - das einzige Scroll, das wir innerhalb wollen!! */
 
-	/*padding-top: 10px; nicht mehr nötig? */
+	padding-top: 20px; 
 }
 
 

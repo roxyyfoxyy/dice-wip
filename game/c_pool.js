@@ -204,14 +204,47 @@
 			gw_augen.style.display = "flex";
 
 			// schreibe Würfelwert rein (z.B. bei [3, 3] dann 3 und 3 in den ersten beiden Slots
-			gw_augen.textContent = kombination[i];
+			//gw_augen.textContent = kombination[i];
+			designGegnerWuerfel(gw_augen, kombination[i]);
 		}
 
 	}
 
-	//HIER SPÄTER: STATT WERT --> WÜRFELAUGEN!!!
+	
 
+//************** FUNKTION: designGegnerWuerfel() **************//
+//******* lösche/cleane + designe neu anhand von Zahl  ********//
+//************************************************************//
 
+function designGegnerWuerfel(wuerfelElement, value) {
+
+    // 1. Lösche vorigen Inhalt/Augen
+    wuerfelElement.innerHTML = "";
+
+    // 2. Wert zuordnen zu Position auge (a1, a2, Kombis etc.)
+	// Wenn später Zahl, dann macht hier lookie-lookie, welche Augen dazugehören
+	// wie bei Player
+    const augePosition = {
+        1: ["a4"],
+        2: ["a1", "a7"],
+        3: ["a1", "a4", "a7"],
+        4: ["a1", "a2", "a6", "a7"],
+        5: ["a1", "a2", "a4", "a6", "a7"],
+        6: ["a1", "a2", "a3", "a5", "a6", "a7"]
+    };
+
+    // 3. Generiere die benötigten Augen
+    augePosition[value].forEach(pos => {
+        const auge = document.createElement("div");
+
+    
+        auge.classList.add("gegner-auge", pos);
+
+        wuerfelElement.appendChild(auge);
+    });
+}
+
+w
 
 /* BEISPIEL
 	updateGegnerDesign(2, [4, 5, 5])

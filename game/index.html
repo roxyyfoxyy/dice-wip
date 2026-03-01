@@ -13,18 +13,19 @@
 	<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 
 	<!-- CSS (hier als RELATIVE PFADE ./ wegen React) -->
-	<link rel="stylesheet" href="./style-test_v17.css">
+	<link rel="stylesheet" href="./style-test.css">
 	
-	<link rel="stylesheet" href="./style-body_v17.css">
-	<link rel="stylesheet" href="./style-scroll_v17.css">
+	<link rel="stylesheet" href="./style-body.css">
+	<link rel="stylesheet" href="./style-scroll.css">
 
-	<link rel="stylesheet" href="./style-spielfeld-layout_v17.css">
-	<link rel="stylesheet" href="./style-spielfeld-gegner_v17.css">
-	<link rel="stylesheet" href="./style-spielfeld-player-wuerfel_v17.css">
+	<link rel="stylesheet" href="./style-spielfeld-layout.css">
+	<link rel="stylesheet" href="./style-spielfeld-gegner.css">
+	<link rel="stylesheet" href="./style-spielfeld-player-wuerfel.css">
 
-	<link rel="stylesheet" href="./style-punkte-hp_v17.css">
+	<link rel="stylesheet" href="./style-punkte-hp.css">
 
-	<link rel="stylesheet" href="./style-popup-text_v17.css">
+	<link rel="stylesheet" href="./style-popup-text.css">
+	<link rel="stylesheet" href="./style-spielfeld-gegner-treffer.css">
 </head>
 
 
@@ -46,6 +47,9 @@
 
 					<!-- SPIELFELD: Stapel & Karten -->
 					<div class="game-element karten-wrap">
+
+						<!-- EFFEKT: Erfolg- & Misserfolg -->
+						<div class="popup-text"></div> 
 
 						<!-- STAPEL -->
 						<div class="stapel-container">
@@ -142,10 +146,6 @@
 					<!-- SPIELFELD: Buttons ENDE -->
 
 
-					<!-- EFFEKT: Erfolg- & Misserfolg -->
-					<div class="popup-text"></div> 
-
-
 				</div>
 			</div>
 		</div>
@@ -155,20 +155,20 @@
 
 	<!-- JS (hier als RELATIVE PFADE ./ wegen React) -->
 	
-	<script src="./a_wuerfel_v17.js"></script>
-	<script src="./c_pool_v17.js"></script>
-	<script src="./d_matching_v17.js"></script>
+	<script src="./a_wuerfel.js"></script>
+	<script src="./c_pool.js"></script>
+	<script src="./d_matching.js"></script>
 	
-	<script src="./e_gamestate_v17.js"></script>
-	<script src="./f_punkte-hp_v17.js"></script>
-	<script src="./e_savegamestate_v17.js"></script>
+	<script src="./e_gamestate.js"></script>
+	<script src="./f_punkte-hp.js"></script>
+	<script src="./e_savegamestate.js"></script>
 	
-	<script src="./g_gameover_v17.js"></script>
+	<script src="./g_gameover.js"></script>
 	
-	<script src="./b_runde_v17.js"></script>
-	<script src="./main_v17.js"></script>
+	<script src="./b_runde.js"></script>
+	<script src="./main.js"></script>
 
-	<script src="./scaler_v17.js"></script>
+	<script src="./scaler.js"></script>
 
 
 </body>
