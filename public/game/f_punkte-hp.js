@@ -97,9 +97,9 @@
         updateGegnerCounter();
         saveGameState();
 
-        // OPTIONAL: Wenn alle Gegner besiegt -> Sieg
-        if (gameState.gegnerCounter === 0) {
-            triggerWin(); // kannst du später bauen
+        // Alle Gegner besiegt
+        if (gameState.gegnerCounter == 0) {
+            triggerGameComplete();
         }
         
     }
