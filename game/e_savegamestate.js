@@ -46,7 +46,7 @@
             gameState.wurfZaehler = parsed.wurfZaehler ?? 0;
             gameState.schonAngegriffen = parsed.schonAngegriffen ?? false;
 
-            gameState.gegnerCounter = parsed.gegnerCounter ?? 25;
+            gameState.gegnerCounter = parsed.gegnerCounter ?? 3; // Default: 25 - Test: 3
 
             aktiveGegner = parsed.aktiveGegner ?? [];
             gegnerPool = parsed.gegnerPool ?? [];
@@ -54,7 +54,7 @@
             werte = parsed.werte ?? [1,1,1,1,1];
             locked = parsed.locked ?? [false,false,false,false,false];
 
-        } else {        //
+        } else {        
 
             gameState.punkte = 0;
             gameState.hp = 10;
@@ -62,7 +62,7 @@
             gameState.schonAngegriffen = false;
             gameState.gameOver = false;
 
-            gameState.gegnerCounter = 25; //SPÄTER gameState.gegnerCounter = gegnerPool.length;
+            gameState.gegnerCounter = 3; // Default: 25 - Test: 3 - SPÄTER gameState.gegnerCounter = gegnerPool.length;
 
             aktiveGegner = [];
             //gegnerPool = [];  //weg, sonst Gegner-Würfel clear
