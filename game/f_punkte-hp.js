@@ -3,7 +3,7 @@
 
 
 //****************** FUNKTION: ANZEIGE-UPDATE *****************//
-//******************** Punkte & HP updaten *******************//
+//************* Punkte, HP, Gegner-Counter updaten ************//
 //************************************************************//
 
     function updatePunkte() {
@@ -17,6 +17,13 @@
         const h = document.getElementById("hp");
         if (h) {
             h.textContent = gameState.hp;
+        }
+    }
+
+    function updateGegnerCounter() {
+        const g = document.getElementById("gegnerCounter");
+        if (g) {
+            g.textContent = gameState.gegnerCounter;
         }
     }
 
@@ -72,3 +79,27 @@
         saveGameState();
     }
 
+
+//***************** FUNKTION: GEGNER-COUNTER *****************//
+//****************** Gegner-, wenn Treffer ******************//
+//***********************************************************//
+
+    function minusGegnerCounter(anzahl) {
+
+        if (gameState.gameOver) return;
+
+        gameState.gegnerCounter -= anzahl;
+
+        if (gameState.gegnerCounter < 0) {
+            gameState.gegnerCounter = 0;
+        }
+
+        updateGegnerCounter();
+        saveGameState();
+
+        // OPTIONAL: Wenn alle Gegner besiegt -> Sieg
+        if (gameState.gegnerCounter === 0) {
+            triggerWin(); // kannst du später bauen
+        }
+        
+    }

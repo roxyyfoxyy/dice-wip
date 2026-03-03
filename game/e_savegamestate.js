@@ -46,6 +46,8 @@
             gameState.wurfZaehler = parsed.wurfZaehler ?? 0;
             gameState.schonAngegriffen = parsed.schonAngegriffen ?? false;
 
+            gameState.gegnerCounter = parsed.gegnerCounter ?? 25;
+
             aktiveGegner = parsed.aktiveGegner ?? [];
             gegnerPool = parsed.gegnerPool ?? [];
             
@@ -60,6 +62,8 @@
             gameState.schonAngegriffen = false;
             gameState.gameOver = false;
 
+            gameState.gegnerCounter = 25; //SPÄTER gameState.gegnerCounter = gegnerPool.length;
+
             aktiveGegner = [];
             //gegnerPool = [];  //weg, sonst Gegner-Würfel clear
 
@@ -71,6 +75,7 @@
         // Anzeige updaten
         updatePunkte();
         updateHP();
+        updateGegnerCounter();
         updateWurf();
 
         // Würfel-Design Anzeige updaten / neu zeichnen
