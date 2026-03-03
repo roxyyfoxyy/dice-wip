@@ -11,6 +11,8 @@ window.gameState = {
     schonAngegriffen: false,
     gameOver: false,
 
+    gegnerCounter: 25,
+
     aktiveGegner: [],
     gegnerPool: [],
 
