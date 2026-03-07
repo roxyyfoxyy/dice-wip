@@ -181,7 +181,7 @@
 			// Punkte inkrementieren - alle +1 (SPÄTER: variierend je nach Gegner)
 			// GegnerCounter dekrementieren
 			// & Mindest-Angriff pro Runde CHECK (so kein -HP beim nächsten Passen)
-			plusPunkte(1);
+			plusPunkte(10);
 			minusGegnerCounter(1); 
 			gameState.schonAngegriffen = true
 			saveGameState();	// für Refresh-Save

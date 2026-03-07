@@ -38,7 +38,14 @@ function triggerGameComplete() {
 
     // GAMECOMPLETE-WINDOW
     window.parent.postMessage(
-        { type: "GAME_COMPLETE" },
+        { 
+            type: "GAME_COMPLETE",
+
+            //Spieldatenübergeben
+            punkte: gameState.punkte,
+            hp: gameState.hp            
+
+        },
         "*"
     );
 

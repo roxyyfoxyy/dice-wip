@@ -101,3 +101,76 @@
 
     transform: scale(1.05);
 }
+
+
+
+/* ************************************************
+   FINAL-PUNKTE - ANIMATION
+   ************************************************ */
+
+.final-score {
+    color: #7bbd7b;
+    text-shadow:
+        0 0 5px #7bbd7b,
+        0 0 15px #7bbd7b,
+        0 0 30px #4a7a4a;
+
+    animation: final-effect 2s infinite alternate;
+}
+
+@keyframes final-effect {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.15);
+    }
+}
+
+
+/* ************************************************
+   HP-BONUS - ANIMATION
+   ************************************************ */
+
+.hp-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    position: relative;     /* wegen popup */
+}
+
+
+.bonus-popup {
+    position: absolute;
+
+    left: 65%;              /* rechts neben HP */
+    margin-left: 0px;
+
+    color: #7bbd7b;
+    font-size: 16px;
+    font-weight: bold;
+
+    animation: bonus-effect 0.7s ease-out forwards;
+}
+
+
+@keyframes bonus-effect {
+
+    0% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.9);;
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateY(0px) scale(1)
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-18px) scale(1.05);
+    }
+
+}

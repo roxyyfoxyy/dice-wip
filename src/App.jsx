@@ -7,8 +7,13 @@ import GameCompleteOverlay from "./ui/GameCompleteOverlay";
 export default function App() {
   const [scene, setScene] = useState("menu");
   const [gameOver, setGameOver] = useState(false);
+
   const [gameComplete, setGameComplete] = useState(false);
+  const [finalScore, setFinalScore] = useState(0);
+  const [remainingHP, setRemainingHP] = useState(0);
+
   const [restartKey, setRestartKey] = useState(0);
+  
 
 
   // GAMEOVER & GAMECOMPLETE MESSAGE
@@ -22,7 +27,11 @@ export default function App() {
 
       // DECISION: GAMECOMPLETE
       if (event.data?.type === "GAME_COMPLETE") {
+        
+        setFinalScore(event.data.punkte);
+        setRemainingHP(event.data.hp);
         setGameComplete(true);
+
       }
     };
 
@@ -34,6 +43,8 @@ export default function App() {
 
 
   return (
+
+    
     <GameWindow>
       {scene === "menu" && (
         <MainMenu onStart={() => setScene("game")} />
@@ -51,37 +62,51 @@ export default function App() {
             }}
         />
 
+
         {gameOver && (
           <GameOverOverlay
+
             onRestartGame={() => {
+              localStorage.removeItem("gameState");     //Daten löschen
               setGameOver(false);
-              setRestartKey(prev => prev + 1); // iframe neu mounten
+              setRestartKey(prev => prev + 1);          // iframe neu mounten
             }}
           
             onBackToMenu={() => {
-                setGameOver(false);
-                setScene("menu");
-              }}
+              localStorage.removeItem("gameState");    //Daten löschen
+              setGameOver(false);
+              setScene("menu");                        //switch zum Menü
+            }}
+
           />
         )}
 
         {gameComplete && (
           <GameCompleteOverlay
+
+            // Spielergebnisse
+            punkte={finalScore}
+            hp={remainingHP}
+
             onRestartGame={() => { 
+              localStorage.removeItem("gameState");   //Daten löschen
               setGameComplete(false);
-              setRestartKey(prev => prev + 1); 
+              setRestartKey(prev => prev + 1);        // iframe neu mounten
             }}
 
             onBackToMenu={() => {
+              localStorage.removeItem("gameState");   //Daten löschen
               setGameComplete(false);
-              setScene("menu");
+              setScene("menu");                       //switch zum Menü
             }}
+          
           />
         )}
         </>
 
 
       )}
+
 
 
 
