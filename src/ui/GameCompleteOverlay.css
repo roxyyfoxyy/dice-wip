@@ -39,7 +39,9 @@
     font-family: inherit;
     color: #98b598;
 
-    margin-bottom: 20px;
+    font-size: 25px;
+
+    margin-bottom: 30px;
 }
 
 
@@ -61,15 +63,15 @@
     position: relative;
         
     /*padding: 11px 20px 11px 20px;     alternatiiiiv */
-    width: 150px;
-    height: 40px;
+    width: 200px;
+    height: 60px;
     margin-bottom: 8px;  /* gap*/
 
     background: #0a0f0a; 
     border: 1px solid #4a7a4a4d;
 
     color: #98b598;
-    font-size: 16px;
+    font-size: 24px;
     font-family: inherit;
 
     text-transform: uppercase;
@@ -145,11 +147,11 @@
 .bonus-popup {
     position: absolute;
 
-    left: 65%;              /* rechts neben HP */
+    left: 70%;              /* rechts neben HP */
     margin-left: 0px;
 
     color: #7bbd7b;
-    font-size: 16px;
+    font-size: 25px;
     font-weight: bold;
 
     animation: bonus-effect 0.7s ease-out forwards;

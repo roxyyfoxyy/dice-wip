@@ -1,4 +1,4 @@
-export default function MainMenu({ onStart }) {
+export default function MainMenu({ onStart, onShowHighscores }) {
   return (
     <>
 
@@ -29,12 +29,12 @@ export default function MainMenu({ onStart }) {
               <span className="menu-text">GUIDE</span>
             </button>
 
-            <button className="menu-button">
-              <span className="menu-text">MUSIK</span>
+            <button className="menu-button" onClick={onShowHighscores}>
+              <span className="menu-text">HIGHSCORES</span>
             </button>
 
             <button className="menu-button">
-              <span className="menu-text">IDK</span>
+              <span className="menu-text">CREDITS</span>
             </button>
 
           </div>

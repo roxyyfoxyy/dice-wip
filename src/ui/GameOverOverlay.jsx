@@ -2,7 +2,7 @@
 
 import "./GameOverOverlay.css";
 
-export default function GameOverOverlay({ onRestartGame, onBackToMenu }) {
+export default function GameOverOverlay({ onRestartGame, onBackToMenu, onShowHighscores}) {
   return (
     <div className="gameover-overlay">
       <div className="gameover-window">
@@ -16,7 +16,7 @@ export default function GameOverOverlay({ onRestartGame, onBackToMenu }) {
 
         <div className="gameover-button-wrap">
             <button onClick={onRestartGame}>NEUSTART</button>
-            <button>HIGHSCORES</button>
+            <button onClick={onShowHighscores}>HIGHSCORES</button>
             <button onClick={onBackToMenu}>ZURÜCK ZUM MENÜ</button>
         </div>
       </div>

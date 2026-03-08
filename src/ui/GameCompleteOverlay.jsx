@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import "./GameCompleteOverlay.css";
 
+// Highscore-Speicherung
+import { saveHighscore } from "../utils/highscores";
+
 
 // JAVASCRIPT-LOGIK FÜR ANIMATIONEN
-export default function GameCompleteOverlay({ punkte, hp, onRestartGame, onBackToMenu }) {
+export default function GameCompleteOverlay({ punkte, hp, onRestartGame, onBackToMenu, onShowHighscores }) {
   
   const HP_SCORE = 3; // +5? oder +3?
 
@@ -70,8 +73,11 @@ export default function GameCompleteOverlay({ punkte, hp, onRestartGame, onBackT
 
 
     // 3. FINALER PUNKTESTAND -> EFFEKT
+    // 3. Finalen Punktstand als Hoghscore speichern
     if (phase === "final") {
       setFinalGlow(true);
+
+      saveHighscore(displayScore);
     }
 
   }, [phase]);
@@ -105,7 +111,7 @@ export default function GameCompleteOverlay({ punkte, hp, onRestartGame, onBackT
 
         <div className="gamecomplete-button-wrap">
             <button onClick={onRestartGame}>NEUSTART</button>
-            <button>HIGHSCORES</button>
+            <button onClick={onShowHighscores}>HIGHSCORES</button>
             <button onClick={onBackToMenu}>ZURÜCK ZUM MENÜ</button>
         </div>
       </div>

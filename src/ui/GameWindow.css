@@ -486,6 +486,12 @@ button {
     animation: glitch-shake 0.3s infinite;
 }
 
+/*** "Klickbar" + Zoom-Hover ***/
+.menu-button {
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
 
 .menu-text {
     font-size: 25px;
