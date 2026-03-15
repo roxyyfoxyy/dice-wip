@@ -4,6 +4,7 @@ import MainMenu from "./scenes/MainMenu";
 import GameOverOverlay from "./ui/GameOverOverlay";
 import GameCompleteOverlay from "./ui/GameCompleteOverlay";
 import HighscoreOverlay from "./ui/HighscoreOverlay";
+import GuideOverlay from "./ui/GuideOverlay";
 
 export default function App() {
   const [scene, setScene] = useState("menu");
@@ -14,6 +15,9 @@ export default function App() {
   const [remainingHP, setRemainingHP] = useState(0);
 
   const [showHighscores, setShowHighscores] = useState(false);
+
+  // FÜRS MENÜ / HOMEPAGE
+  const [showGuide, setShowGuide] = useState(false);
 
   const [restartKey, setRestartKey] = useState(0);
   
@@ -49,10 +53,14 @@ export default function App() {
 
     
     <GameWindow>
+      
+      
+    
       {scene === "menu" && (
         <MainMenu 
           onStart={() => setScene("game")} 
           onShowHighscores={() => setShowHighscores(true)}
+          onShowGuide={() => setShowGuide(true)}
         />
       )}
 
@@ -118,11 +126,22 @@ export default function App() {
       )}
 
 
+
+
+
+      {showGuide && (
+        <GuideOverlay
+          onClose={() => setShowGuide(false)}
+        />
+      )}
+
       {showHighscores && (
         <HighscoreOverlay
           onClose={() => setShowHighscores(false)}
         />
       )}
+
+
 
 
 

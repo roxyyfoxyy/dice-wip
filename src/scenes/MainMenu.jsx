@@ -1,4 +1,4 @@
-export default function MainMenu({ onStart, onShowHighscores }) {
+export default function MainMenu({ onStart, onShowHighscores, onShowGuide }) {
   return (
     <>
 
@@ -25,7 +25,7 @@ export default function MainMenu({ onStart, onShowHighscores }) {
               <span className="menu-text">START</span>
             </button>
 
-            <button className="menu-button">
+            <button className="menu-button" onClick={onShowGuide}>
               <span className="menu-text">GUIDE</span>
             </button>
 
