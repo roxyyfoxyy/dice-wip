@@ -178,10 +178,14 @@
 		if (result.success) {
 			console.log("Treffer - Gegner wird besiegt");
 
-			// Punkte inkrementieren - alle +1 (SPÄTER: variierend je nach Gegner)
+			//Gegner erkennen/kategorisieren für jeweilige Punkte
+			const gegnerIndex = parseInt(gegnerKarte.id.replace("gegner", "")) - 1;
+			const gegner = aktiveGegner[gegnerIndex];
+
+			// Punkte inkrementieren - je nach Gegner
 			// GegnerCounter dekrementieren
 			// & Mindest-Angriff pro Runde CHECK (so kein -HP beim nächsten Passen)
-			plusPunkte(10);
+			plusPunkte(gegner.punkte);
 			minusGegnerCounter(1); 
 			gameState.schonAngegriffen = true
 			saveGameState();	// für Refresh-Save
