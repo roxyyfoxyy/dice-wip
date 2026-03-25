@@ -64,6 +64,18 @@
 		return [x, x + 1, x + 2, x + 3];
 	}
 
+	// Special-Gegner - FREEZE (hier NAME): Zwillinge (2-2, 4-4, ...)
+	function createFreezeA() {
+		const x = Math.floor(Math.random() * 6) + 1;
+		return [x, x];
+	}
+
+	//Special-Gegner - FREEZE (hier NAME): Stepper (2-3, 4-5, ...) */
+	function createFreezeB() {
+		const x = Math.floor(Math.random() * 5) + 1;		// max. 5 sonst x+1=7
+		return [x, x + 1];
+	}
+
 
 
 
@@ -75,13 +87,14 @@
 
 	// Funktion für Gegnergenerierung 
 	// mit Zuteilung von Typ, Häufigkeit, jeweilige Kombi-Fkt aus gegnerPool()
-	function addGegner(typ, haeufigkeit, create, punkte) {
+	function addGegner(typ, haeufigkeit, create, punkte, img = null) {
 
 		for (let i = 0; i < haeufigkeit; i++) {
 			gegnerPool.push({						// pushed/hängt das neue Element hinten an das Array
 				typ,								// mit Typ
 				kombi: create(),					// & Kombination (aus dem jeweiligen create() -> zsmgefasst als kombi)
-				punkte
+				punkte,
+				img
 			});										// --> { type: "EasyA", kombi [2,2], 1 } { type: "...", kombi [...], punkte }, usw.
 		}
 	}
@@ -99,6 +112,9 @@
 	addGegner("DifficultB", 4, createDifficultB, 5);
 	addGegner("DifficultC", 3, createDifficultC, 5);
 
+	addGegner("Freeze", 5, createFreezeA, 2, "/dice-wip/images/freeze.png");
+	addGegner("Freeze", 5, createFreezeB, 2, "/dice-wip/images/freeze.png");
+
 
 
 
@@ -113,6 +129,8 @@
 
 	function randomGegner() {
 
+		const freezeSchonAktiv = aktiveGegner.some(g => g && g.typ === "Freeze");
+
 		// Wenn Pool noch 0 / kein Gegnerpool generiert, dann mache nix
 		if (gegnerPool.length === 0) {
 			return null;
@@ -124,8 +142,17 @@
 
 		// 2. Gibt Element der gewählten Positionen zurück && entfernt (so KEINE DOPPLUNG)
 		const [gegner] = gegnerPool.splice(index, 1);					// .splice = entfernt im Array ab Pos. "index" GENAU 1 ELEMENT (also genau das random auserwählte)
+		
+		// Wenn Special-Gegner-FREEZE aktiv, dann neuen Gegner wählen
+		if (gegner.typ === "Freeze" && freezeSchonAktiv) {
+			// zurück in Pool und neu ziehen
+			gegnerPool.push(gegner);
+			return randomGegner();
+		}
+		
 		return gegner;																// so return nicht als Array sondern OBJEKT
-																								
+																					
+	
 	}
 
 
@@ -147,6 +174,17 @@
 			// 1. Neuer Gegner aus randomGegner() (unser "return gegner") und push in aktiveGegner
 			const neu = randomGegner();
 			aktiveGegner.push(neu);
+
+			// ZWISCHEN: für Special-Gegner-FREEZE
+			if (neu && neu.typ === "Freeze" && !freezeAktiv) {
+				freezeAktiv = true;
+				frozenIndex = Math.floor(Math.random() * 5);
+				freezeEnemyId = neu;
+
+				if (firstRollDone) {
+					frozenValue = werte[frozenIndex];
+				}
+			}
 
 			// 2. Kombi des neuen Gegners
 			let kombi;
@@ -171,6 +209,20 @@
 //************************************************************//
 
 	function updateGegnerDesign(slot, kombination) {
+
+
+		// Bilder für Gegner
+		const karte = document.getElementById("gegner" + slot);
+
+		// Bild setzen oder entfernen
+		if (aktiveGegner[slot - 1]?.img) {
+			karte.style.backgroundImage = `url(${aktiveGegner[slot - 1].img})`;
+			karte.classList.add("hat-bild");
+		} else {
+			karte.style.backgroundImage = "";
+			karte.classList.remove("hat-bild");
+		}
+
 
 		// 1. Hole gw-container der entsprechenden Karte an Position i/slot (1-4)
 		// slot/gegnerX + das nächste dahinter liegende .gw-container

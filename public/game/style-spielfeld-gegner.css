@@ -64,6 +64,8 @@
 	width: 200px;
 	height: 300px;
 
+	position: relative; /* wegen Bilder für Gegner */
+
 	background: #141914d9;
 	border: 2px solid #4a7a4a4d;
 	border-radius: 8px;
@@ -83,6 +85,29 @@
 	transform: scale(1.05);
 }
 
+
+/*** Bilder für Gegner ***/
+.karten.hat-bild {
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.karten.hat-bild::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+
+	/* Farbliche Anpassung */
+	background: rgba(20, 60, 20, 0.25); 
+    mix-blend-mode: multiply;
+}
+
+.karten {
+    padding: 10px;   /* innerer Abstand */
+    background-clip: content-box; /* verhindert, dass BG unter den Rand geht */
+}
 
 
 /* ************************************************

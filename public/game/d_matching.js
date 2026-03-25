@@ -55,6 +55,19 @@
 
 		if (neu) {																	
 			aktiveGegner[slotIndex] = neu;								// Wenn vorhanden, dann neuer aktiveGegner
+			
+			// ZWISCHEN: für Special-Gegner-FREEZE
+			if (neu && neu.typ === "Freeze" && !freezeAktiv) {
+				freezeAktiv = true;
+				frozenIndex = Math.floor(Math.random() * 5);
+				freezeEnemyId = neu;
+
+				frozenValue = werte[frozenIndex]; // Wert merken von freezed Würfel
+
+				updateWuerfelAnzeige();
+			}
+			
+			
 			updateGegnerDesign(slotIndex + 1, neu.kombi);				// und Gegnerwürfel [später auch Karte) updaten
 		} else {
 			aktiveGegner[slotIndex] = null;								// ansonsten leer, kein Nachschub

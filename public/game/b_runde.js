@@ -104,11 +104,17 @@
 		// 2. Gehe alle Würfel durch
 		for (let i = 0; i < 5; i++) {
 
-			// 3. Entferne locks
-			locked[i] = false;
+			// 3. Entferne locks (alle außer freeze-lock durch Gegner)
+			if (i !== frozenIndex) {
+				locked[i] = false;
+			}
 
 			// Würfelaufgen-Werte leeren (damit bei Refresh nicht last-saved wieder angezeigt wird!!)
-			werte[i] = null;
+			if (i === frozenIndex && freezeAktiv) {
+				werte[i] = frozenValue; // Wert behalten!
+			} else {
+				werte[i] = null;
+			}
 
 			// 4. Hole entsprechenden Würfel
 			const w = document.getElementById("wuerfel" + (i + 1))
@@ -118,7 +124,10 @@
 
 			// 6. Entferne Inhalt/Augen
 			w.innerHTML = "";
+
 		}
+
+		updateWuerfelAnzeige();
 
     // 7. Button-Rolle in index wieder aktivieren
     wuerfelnButton.disabled = false;
@@ -181,6 +190,16 @@
 			//Gegner erkennen/kategorisieren für jeweilige Punkte
 			const gegnerIndex = parseInt(gegnerKarte.id.replace("gegner", "")) - 1;
 			const gegner = aktiveGegner[gegnerIndex];
+
+			// ZWISCHEN: für Special-Gegner-FREEZE
+			if (gegner.typ === "Freeze") {
+				freezeAktiv = false;
+				frozenIndex = null;
+				freezeEnemyId = null;
+				frozenValue = null;
+
+				updateWuerfelAnzeige();
+			}
 
 			// Punkte inkrementieren - je nach Gegner
 			// GegnerCounter dekrementieren
