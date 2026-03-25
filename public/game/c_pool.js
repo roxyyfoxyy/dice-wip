@@ -75,28 +75,29 @@
 
 	// Funktion für Gegnergenerierung 
 	// mit Zuteilung von Typ, Häufigkeit, jeweilige Kombi-Fkt aus gegnerPool()
-	function addGegner(typ, haeufigkeit, create) {
+	function addGegner(typ, haeufigkeit, create, punkte) {
 
 		for (let i = 0; i < haeufigkeit; i++) {
 			gegnerPool.push({						// pushed/hängt das neue Element hinten an das Array
-				typ,										// mit Typ
-				kombi: create()						// & Kombination (aus dem jeweiligen create() -> zsmgefasst als kombi)
-			});										// --> { type: "EasyA", kombi [2,2] } { type: "...", kombi [...] }, usw.
+				typ,								// mit Typ
+				kombi: create(),					// & Kombination (aus dem jeweiligen create() -> zsmgefasst als kombi)
+				punkte
+			});										// --> { type: "EasyA", kombi [2,2], 1 } { type: "...", kombi [...], punkte }, usw.
 		}
 	}
 	
 
-	// Erstelle mit addGegner-Logik vom Typ "..." x-viele Gegner
+	// Erstelle mit addGegner-Logik vom Typ "..." x-viele Gegner, mit Punktewert xy
 	// der Wert/die Kombi soll aus create...() kommen (return [...])
-	addGegner("EasyA", 6, createEasyA);
-	addGegner("EasyB", 6, createEasyB);
+	addGegner("EasyA", 6, createEasyA, 1);
+	addGegner("EasyB", 6, createEasyB, 1);
 
-	addGegner("MediumA", 5, createMediumA);
-	addGegner("MediumB", 5, createMediumB);
+	addGegner("MediumA", 5, createMediumA, 3);
+	addGegner("MediumB", 5, createMediumB, 3);
 
-	addGegner("DifficultA", 2, createDifficultA);
-	addGegner("DifficultB", 4, createDifficultB);
-	addGegner("DifficultC", 3, createDifficultC);
+	addGegner("DifficultA", 2, createDifficultA, 5);
+	addGegner("DifficultB", 4, createDifficultB, 5);
+	addGegner("DifficultC", 3, createDifficultC, 5);
 
 
 

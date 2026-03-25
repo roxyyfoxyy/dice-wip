@@ -100,7 +100,8 @@ export default function GuideOverlay({ onClose }) {
                   kannst du einen oder mehr <b>Gegner auswählen</b> und so vom Feld räumen.
                   Damit ist der <b>notwendige Angriff</b> für diese Runde erfüllt. 
                   Nun kann ohne Bedenken gepasst werden - oder du versuchst dein Glück und
-                  tätigst mit ggf. verbleibenden Würfen weitere Züge. <b>Jeder Gegner bringt Punkte!</b>
+                  tätigst mit ggf. verbleibenden Würfen weitere Züge. <b>Jeder Gegner bringt Punkte</b> –
+                  und je schwieriger er sind, desto mehr erhälst du!
                 </p>
               </div>
 
