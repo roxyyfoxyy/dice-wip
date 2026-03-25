@@ -39,6 +39,15 @@
 	 
 }
 
+/*** Design wenn locked durch Special-Gegner ***/
+.wuerfel.frozen {
+    filter: grayscale(90%);
+    opacity: 0.5;
+    border-color: #888;
+    box-shadow: none;
+}
+
+
 
 
 
