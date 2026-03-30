@@ -13,6 +13,15 @@
         gameState.werte = werte;
         gameState.locked = locked;
 
+        // SPECIAL: FREEZE
+        gameState.freezeAktiv = freezeAktiv;
+        gameState.frozenIndex = frozenIndex;
+        gameState.frozenValue = frozenValue;
+
+        // SPECIAL: STEAL
+        gameState.stealAktiv = stealAktiv;
+        gameState.stolenIndex = stolenIndex;
+
         // Objekt umwandeln in String
         // z.B. \"punkte\":5,\"hp\":8,\"gameOver\":false
         localStorage.setItem("gameState", JSON.stringify(gameState));
@@ -54,6 +63,15 @@
             werte = parsed.werte ?? [1,1,1,1,1];
             locked = parsed.locked ?? [false,false,false,false,false];
 
+            // SPECIAL: FREEZE
+            freezeAktiv = parsed.freezeAktiv ?? false;
+            frozenIndex = parsed.frozenIndex ?? null;
+            frozenValue = parsed.frozenValue ?? null;
+
+            // SPECIAL: STEAL
+            stealAktiv = parsed.stealAktiv ?? false;
+            stolenIndex = parsed.stolenIndex ?? null;
+
         } else {        
 
             gameState.punkte = 0;
@@ -82,7 +100,10 @@
         for (let i = 0; i < 5; i++) {
             const w = document.getElementById("wuerfel" + (i + 1));
 
+            // Lock & Freeze & Steal wieder korrekt setzen
             w.classList.toggle("locked", locked[i]);
+            w.classList.toggle("frozen", i === frozenIndex && freezeAktiv);
+            w.classList.toggle("stolen", i === stolenIndex && stealAktiv);
 
             if (werte[i] == null) {
                 w.innerHTML = "";

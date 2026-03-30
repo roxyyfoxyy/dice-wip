@@ -64,18 +64,32 @@
 		return [x, x + 1, x + 2, x + 3];
 	}
 
-	// Special-Gegner - FREEZE (hier NAME): Zwillinge (2-2, 4-4, ...)
+
+
+
+	// Special-Gegner - FREEZE (hier Eispilzgnom): Zwillinge (2-2, 4-4, ...)
 	function createFreezeA() {
 		const x = Math.floor(Math.random() * 6) + 1;
 		return [x, x];
 	}
 
-	//Special-Gegner - FREEZE (hier NAME): Stepper (2-3, 4-5, ...) */
+	//Special-Gegner - FREEZE (hier Eispilzgnom): Stepper (2-3, 4-5, ...) */
 	function createFreezeB() {
 		const x = Math.floor(Math.random() * 5) + 1;		// max. 5 sonst x+1=7
 		return [x, x + 1];
 	}
 
+	// Special-Gegner - STEAL (hier NAME): Zwillinge (2-2, 4-4, ...)
+	function createStealA() {
+		const x = Math.floor(Math.random() * 6) + 1;
+		return [x, x];
+	}
+
+	//Special-Gegner - STEAL (hier NAME): Stepper (2-3, 4-5, ...) */
+	function createStealB() {
+		const x = Math.floor(Math.random() * 5) + 1;		// max. 5 sonst x+1=7
+		return [x, x + 1];
+	}
 
 
 
@@ -94,7 +108,7 @@
 				typ,								// mit Typ
 				kombi: create(),					// & Kombination (aus dem jeweiligen create() -> zsmgefasst als kombi)
 				punkte,
-				img
+				img,
 			});										// --> { type: "EasyA", kombi [2,2], 1 } { type: "...", kombi [...], punkte }, usw.
 		}
 	}
@@ -115,6 +129,9 @@
 	addGegner("Freeze", 5, createFreezeA, 2, "/dice-wip/images/freeze.png");
 	addGegner("Freeze", 5, createFreezeB, 2, "/dice-wip/images/freeze.png");
 
+	addGegner("Steal", 5, createStealA, 2, "/dice-wip/images/steal.png");
+	addGegner("Steal", 5, createStealB, 2, "/dice-wip/images/steal.png");	
+
 
 
 
@@ -129,7 +146,9 @@
 
 	function randomGegner() {
 
+		// Special-Gegner separat
 		const freezeSchonAktiv = aktiveGegner.some(g => g && g.typ === "Freeze");
+		const specialSchonAktiv = aktiveGegner.some(g => g && (g.typ === "Freeze" || g.typ === "Steal"));
 
 		// Wenn Pool noch 0 / kein Gegnerpool generiert, dann mache nix
 		if (gegnerPool.length === 0) {
@@ -146,6 +165,12 @@
 		// Wenn Special-Gegner-FREEZE aktiv, dann neuen Gegner wählen
 		if (gegner.typ === "Freeze" && freezeSchonAktiv) {
 			// zurück in Pool und neu ziehen
+			gegnerPool.push(gegner);
+			return randomGegner();
+		}
+
+		// Wenn Special-Gegner aktiv, dann neuen Gegner wählen
+		if (specialSchonAktiv && (gegner.typ === "Freeze" || gegner.typ === "Steal")) {
 			gegnerPool.push(gegner);
 			return randomGegner();
 		}
@@ -175,7 +200,10 @@
 			const neu = randomGegner();
 			aktiveGegner.push(neu);
 
-			// ZWISCHEN: für Special-Gegner-FREEZE
+
+
+
+			// SPECIAL: FREEZE zum Start korrekt aktiviere
 			if (neu && neu.typ === "Freeze" && !freezeAktiv) {
 				freezeAktiv = true;
 				frozenIndex = Math.floor(Math.random() * 5);
@@ -185,6 +213,29 @@
 					frozenValue = werte[frozenIndex];
 				}
 			}
+
+			// SPECIAL: STEAL zum Start korrekt aktivieren
+			if (neu && neu.typ === "Steal" && !stealAktiv) {
+				stealAktiv = true;
+
+				// 1 zufälliger Würfel wird "geklaut"
+				let availableIndices = [0,1,2,3,4];
+				stolenIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+
+				// Spielerwert ausblenden & locked setzen
+				werte[stolenIndex] = null;
+				locked[stolenIndex] = true;
+
+				// HTML: Würfel verstecken
+				document.getElementById("wuerfel" + (stolenIndex + 1)).style.visibility = "hidden";
+
+				// Optional: direkt updateWuerfelAnzeige() aufrufen
+				updateWuerfelAnzeige();
+			}
+
+
+
+
 
 			// 2. Kombi des neuen Gegners
 			let kombi;

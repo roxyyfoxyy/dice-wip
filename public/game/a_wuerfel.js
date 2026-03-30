@@ -20,6 +20,8 @@
 	let firstRollDone = false;
 	let frozenValue = null;
 
+	let stolenIndex = null;
+	let stealAktiv = false;
 
 
 
@@ -73,8 +75,11 @@
 			
 			if (i === frozenIndex && freezeAktiv) {
 				frozenValue = werte[i];
-			}
-			else if (!locked[i]) {											//wenn bei locked nicht auf true, dann:
+
+			} else if (i === stolenIndex && stealAktiv) {
+				werte[i] = null; // Geklauter Würfel wird nicht gerollt
+
+			} else if (!locked[i]) {											//wenn bei locked nicht auf true, dann:
 				werte[i] = Math.floor(Math.random() * 6) + 1;				//random Abrundwert zwischen 0...5 +1 -> 1...6
 			}
 
@@ -86,12 +91,19 @@
 				designWuerfel(w, werte[i]);									//Damit ab zu: Erstellung Design jeweiliger Würfel
 			} 
 
+			// FREEZE-Würfel
 			if (i === frozenIndex && firstRollDone) {
 				w.classList.add("frozen");
 			} else {
 				w.classList.remove("frozen");
 			}
 
+			// STEAL-Würfel
+			if (i === stolenIndex && stealAktiv) {
+				w.classList.add("stolen");
+			} else {
+				w.classList.remove("stolen");
+			}
 
 		}
 		
@@ -117,6 +129,13 @@
 				w.classList.add("frozen");
 			} else {
 				w.classList.remove("frozen");
+			}
+
+			// Steal-Status korrekt setzen
+			if (i === stolenIndex && stealAktiv) {
+				w.classList.add("stolen");
+			} else {
+				w.classList.remove("stolen");
 			}
 		}
 	}
