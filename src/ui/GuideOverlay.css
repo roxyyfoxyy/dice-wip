@@ -207,7 +207,7 @@
 
 
 
-.combo-23 {
+.combo-25 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -222,11 +222,11 @@
 
 }
 
-.combo-23-left img {
+.combo-25-left img {
     width: 200px;
 }
 
-.combo-23-right {
+.combo-25-right {
     text-align: left;
 }
 

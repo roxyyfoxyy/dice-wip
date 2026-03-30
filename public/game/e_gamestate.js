@@ -20,12 +20,15 @@ window.gameState = {
     locked: [false,false,false,false,false],
 
 
-    // SPECIAL: FREEZE & STEAL merken
+    // SPECIAL: FREEZE & STEAL
     freezeAktiv: false,
     frozenIndex: null,
     frozenValue: null,
 
     stealAktiv: false,
     stolenIndex: null,
+
+    // SPECIAL: HEAL
+    healUsed: false,
 
 };

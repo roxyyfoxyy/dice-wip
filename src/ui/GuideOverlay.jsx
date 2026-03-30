@@ -218,22 +218,22 @@ export default function GuideOverlay({ onClose }) {
 
 
               {/* SPECIAL COMBOS - 23  */}
-              <div className="combo-23">
+              <div className="combo-25">
 
-                <div className="combo-23-left">
-                  AUGENSUMME 23 <br/> <br/>
+                <div className="combo-25-left">
+                  AUGENSUMME 25 <br/> <br/>
                   <img src={kombi} /> <br/>
                   <img src={kombi} /> <br/>
                   [...]  <br/><br/>
                   
                     <small>
-                      Erreiche mit deinen Würfeln eine Augenzahlsumme von 23, 
+                      Erreiche mit deinen Würfeln mindestens eine Augenzahlsumme von 25, 
                       um einen Health-Point wiederzuerlangen. <br/>
                     </small> 
                   
                 </div>
 
-                <div className="combo-23-right">
+                <div className="combo-25-right">
                   <br/>
                   <small>Beachte jedoch:</small>
                   <div className="combo-note">

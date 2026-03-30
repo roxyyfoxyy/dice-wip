@@ -69,43 +69,51 @@
 	// Würfeln/randomizing nur für not-locked-ones
 	function wuerfeln() {
 
+		// FLAG: erster Wurf getätigt
 		firstRollDone = true;
 	
 		for (let i = 0; i < 5; i++) {										//gehe alle Würfel 0-4 durch im Array locked
 			
+			// SPECIAL: ggf. Würfel einfrieren (aktiviert durch Gegner)
 			if (i === frozenIndex && freezeAktiv) {
 				frozenValue = werte[i];
 
+			// SPECIAL: ggf. Würfel stehlen (aktiviert durch Gegner)
 			} else if (i === stolenIndex && stealAktiv) {
 				werte[i] = null; // Geklauter Würfel wird nicht gerollt
 
-			} else if (!locked[i]) {											//wenn bei locked nicht auf true, dann:
+			// Ansonsten:
+			} else if (!locked[i]) {										//wenn bei locked nicht auf true, dann:
 				werte[i] = Math.floor(Math.random() * 6) + 1;				//random Abrundwert zwischen 0...5 +1 -> 1...6
 			}
 
 		
-			// hole entsprechenden Würfel
+			// Hole entsprechenden Würfel
 			const w = document.getElementById("wuerfel" + (i + 1));			//+1 wegen 1-6 für ID statt 0-5
 													
 			if (werte[i] !== null) {
 				designWuerfel(w, werte[i]);									//Damit ab zu: Erstellung Design jeweiliger Würfel
 			} 
 
-			// FREEZE-Würfel
+			// SPECIAL: FREEZE-Würfel-Flag
 			if (i === frozenIndex && firstRollDone) {
 				w.classList.add("frozen");
 			} else {
 				w.classList.remove("frozen");
 			}
 
-			// STEAL-Würfel
+			// SPECIAL: STEAL-Würfel-Flag
 			if (i === stolenIndex && stealAktiv) {
 				w.classList.add("stolen");
 			} else {
 				w.classList.remove("stolen");
-			}
+			}	
 
 		}
+
+		// SPECIAL: HEAL-Bedingung prüfen (Summe 25)
+		checkHeal();
+
 		
 	}
 

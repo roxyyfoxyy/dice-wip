@@ -99,6 +99,7 @@
 		// 1. Wurfanzahl wieder 0 & schonAngegriffen-reset
 		gameState.wurfZaehler = 0;
 		gameState.schonAngegriffen = false;
+		gameState.healUsed = false;
 		updateWurf();		// Wurfanzahl updaten
 
 		// 2. Gehe alle Würfel durch
