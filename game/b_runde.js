@@ -191,6 +191,7 @@
 			const gegnerIndex = parseInt(gegnerKarte.id.replace("gegner", "")) - 1;
 			const gegner = aktiveGegner[gegnerIndex];
 
+
 			// ZWISCHEN: für Special-Gegner-FREEZE
 			if (gegner.typ === "Freeze") {
 				freezeAktiv = false;
@@ -207,7 +208,7 @@
 			plusPunkte(gegner.punkte);
 			minusGegnerCounter(1); 
 			gameState.schonAngegriffen = true
-			saveGameState();	// für Refresh-Save
+			
 			
 
 			// ANIMATION: GEGNER TREFFER-ANIMATION
@@ -217,8 +218,12 @@
 			setTimeout(() => {
 				gegnerKarte.classList.remove("beat");
 				nachruecken(slot);
+				saveGameState();	// für Refresh-Save -> HIERHIN! 
+				 					// Sonst nachruecken() mit neuem Gegner nicht in Save-GameState, sondern alter Gegner-Status
 				gegnerKarte.classList.add("spawn");
 			}, 500);
+
+			
 
 			
 			

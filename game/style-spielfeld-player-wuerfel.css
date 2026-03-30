@@ -47,7 +47,10 @@
     box-shadow: none;
 }
 
-
+/*** Design wenn gestohlen durch Special-Gegner ***/
+.wuerfel.stolen {
+    visibility: hidden;
+}
 
 
 

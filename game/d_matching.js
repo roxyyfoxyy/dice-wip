@@ -50,13 +50,42 @@
 	function nachruecken(slotIndex) {
 		console.log("Gegner besiegt auf Slot:", slotIndex + 1);			// 0-3
 
+		
+		const gegner = aktiveGegner[slotIndex];
+    	if (!gegner) return;
+		
+		
+		// 1. STEAL rückgängig machen, falls der besiegte Gegner STEAL war
+		if (gegner.typ === "Steal") {
+			stealAktiv = false;
+
+			// Würfel wieder sichtbar machen
+			document.getElementById("wuerfel" + (stolenIndex + 1)).style.visibility = "visible";
+
+			locked[stolenIndex] = false;
+			werte[stolenIndex] = 1; // Defaultwert beim Wiedereintritt
+			stolenIndex = null;
+
+			updateWuerfelAnzeige();
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		// Neuer Gegner aus pool.js
 		const neu = randomGegner();
 
 		if (neu) {																	
 			aktiveGegner[slotIndex] = neu;								// Wenn vorhanden, dann neuer aktiveGegner
 			
-			// ZWISCHEN: für Special-Gegner-FREEZE
+			// SPECIAL: FREEZE-Gegner
 			if (neu && neu.typ === "Freeze" && !freezeAktiv) {
 				freezeAktiv = true;
 				frozenIndex = Math.floor(Math.random() * 5);
@@ -66,6 +95,26 @@
 
 				updateWuerfelAnzeige();
 			}
+
+			// SPECIAL: STEAL-Gegner
+			if (neu && neu.typ === "Steal" && !stealAktiv) {
+				stealAktiv = true;
+
+				// 1 zufälliger Würfel wird "geklaut"
+				let availableIndices = [0,1,2,3,4];
+				stolenIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+
+				// Spielerwert ausblenden & locked setzen
+				werte[stolenIndex] = null;
+				locked[stolenIndex] = true;
+
+				// HTML: Würfel verstecken
+				document.getElementById("wuerfel" + (stolenIndex + 1)).style.visibility = "hidden";
+
+				updateWuerfelAnzeige();
+			}
+
+
 			
 			
 			updateGegnerDesign(slotIndex + 1, neu.kombi);				// und Gegnerwürfel [später auch Karte) updaten

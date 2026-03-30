@@ -17,6 +17,15 @@ window.gameState = {
     gegnerPool: [],
 
     werte: [1,1,1,1,1],
-    locked: [false,false,false,false,false]
+    locked: [false,false,false,false,false],
+
+
+    // SPECIAL: FREEZE & STEAL merken
+    freezeAktiv: false,
+    frozenIndex: null,
+    frozenValue: null,
+
+    stealAktiv: false,
+    stolenIndex: null,
 
 };
