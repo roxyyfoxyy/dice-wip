@@ -144,6 +144,14 @@
 		// Wenn kein Gegner, dann abbrechen
 		if (!gegner) return false;
 
+
+		// SPECIAL: Große Straße aktiv? -> direkt Treffer
+		if (gameState.strasseActive) {
+			gameState.strasseActive = false; // nur für diesen Zug
+			saveGameState();
+			return { success: true, slot: slot };
+		}
+
 		// 3. Prüfe, ob User matched -> weil dann nachruecken
 		if (match(gegner.kombi)) {
 			return { success: true, slot: slot }; 				// Treffer -> Erfolg

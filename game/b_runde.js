@@ -100,6 +100,7 @@
 		gameState.wurfZaehler = 0;
 		gameState.schonAngegriffen = false;
 		gameState.healUsed = false;
+		gameState.strasseActive = false;
 		updateWurf();		// Wurfanzahl updaten
 
 		// 2. Gehe alle Würfel durch
