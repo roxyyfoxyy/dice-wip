@@ -200,7 +200,7 @@ export default function GuideOverlay({ onClose }) {
                 <img src={kombi} />
                 <img src={kombi} /> <br/>
                 <small>
-                  Diese Kombi ermöglicht es dir, einen beliebigen Gegner deiner Wahl sofort zu besiegen.
+                  Diese Kombi ermöglicht es dir, einmal pro Runde einen beliebigen Gegner deiner Wahl sofort zu besiegen.
                   Wähle geschickt!
                 </small>
               </div>
@@ -208,10 +208,11 @@ export default function GuideOverlay({ onClose }) {
               <div className="combo-pic">
                 5ER-PASCH <br/> <br/>
                 <img src={kombi} />
-                  <small>
+                  <small> <br/>
                     Fünf gleiche Würfelaugen entfesseln enorme Wucht.
                     Du schleuderst einen beliebigen Gegner vom Feld – 
                     und reißt dabei einen weiteren (einen der schwächeren) Gegner gleich mit.
+                    Einmal pro Runde einsetzbar.
                   </small>
               </div>
             </div>

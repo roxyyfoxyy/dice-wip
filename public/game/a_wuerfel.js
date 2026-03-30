@@ -113,6 +113,9 @@
 
 		// SPECIAL: HEAL-Bedingung prüfen (Summe 25)
 		checkHeal();
+		
+		// SPECIAL: Große-Straße prüfen
+		checkStrasse();
 
 		
 	}

@@ -31,4 +31,7 @@ window.gameState = {
     // SPECIAL: HEAL
     healUsed: false,
 
+    // SPECIAL: GROSSE STRASSE
+    strasseActive: false,
+
 };

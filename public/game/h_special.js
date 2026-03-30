@@ -3,7 +3,8 @@
 //*****************************************//
 
 
-// ***************** SPECIAL: HEALING ***************** //
+//******************* FUNKTION: checkHeal() *******************//
+//***********************************************************//
 
 function checkHeal() {
     //einmal pro Runde
@@ -36,5 +37,35 @@ function checkHeal() {
 
 
         
+    }
+}
+
+
+//******************* FUNKTION: checkStrasse() *******************//
+//***********************************************************//
+
+function checkStrasse() {
+    // Würfelwerte sortieren & nulls entfernen
+    const gewuerfelt = werte.filter(v => v !== null).sort((a,b)=>a-b);
+
+    // Große Straße: 1-2-3-4-5 oder 2-3-4-5-6
+    const strasse1 = [1,2,3,4,5];
+    const strasse2 = [2,3,4,5,6];
+
+    // Prüfen, ob gewürfelt = Große Straße
+    if (gewuerfelt.length === 5 &&
+       (gewuerfelt.every((v,i) => v === strasse1[i]) || gewuerfelt.every((v,i) => v === strasse2[i]))) {
+        gameState.strasseActive = true;
+
+        // Optional: Animation/Popup
+        const popup = document.querySelector(".popup-text");
+        if (popup) {
+            popup.textContent = "Große Straße! Wähle beliebigen Gegner!";
+            popup.classList.remove("animation");
+            void popup.offsetWidth;
+            popup.classList.add("animation");
+        }
+
+        saveGameState();
     }
 }
