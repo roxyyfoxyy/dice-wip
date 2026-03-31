@@ -40,6 +40,23 @@
         saveGameState();
     }
 
+    // ANIMATION
+    function showPunktePopup(text) {
+        const popup = document.querySelector(".punkte-popup");
+
+        if (!popup) return;
+
+        // Hier Punkte
+        popup.textContent = text;
+
+        // Reset der Animation
+        popup.classList.remove("animation");
+        void popup.offsetWidth;     // Reflow-Trick
+
+        // Animation starten
+        popup.classList.add("animation");
+    }
+
 
 
 //********************* FUNKTION: HP-LOGIK ********************//
@@ -61,9 +78,30 @@
         updateHP();
         saveGameState();
 
+        // HP-Popup Animation
+        showHPPopup(`-${anzahl} HP`);
+        
+
+
         if (gameState.hp == 0) {
             triggerGameOver();
         }
+    }
+
+
+    // ANIMATION
+        function showHPPopup(text) {
+        const popup = document.querySelector(".hp-popup");
+        if (!popup) return;
+
+        popup.textContent = text;
+
+        // Reset Animation
+        popup.classList.remove("animation");
+        void popup.offsetWidth; // Reflow trick
+
+        // Animation starten
+        popup.classList.add("animation");
     }
 
 

@@ -13,12 +13,20 @@
 
 }
 
+/*
 .punkte-wrap {
 
 	display: flex;
 	align-items: center;
 	justify-content: right;
 
+}*/
+
+.punkte-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative; /* sehr wichtig für absolute Positionierung des Popups */
 }
 
 .wuerfel-wrap {

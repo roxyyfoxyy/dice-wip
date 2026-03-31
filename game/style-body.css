@@ -37,6 +37,8 @@ body {
     color: #98b598;
 	overflow-x: hidden;
 	overflow-y: hidden;	/* so äußeres "Doppelt gemoppelt"-Scrollen verhindern - u don't trust? setz mal auf visible/auto */
+
+	justify-content: center;
 }
 
 
@@ -44,13 +46,13 @@ body {
 #game-wrapper {
 
 	display: flex;	/* so mittig */
-	height: 100dvh; /* nicht 100%, sonst kein y-scroll -> bottom-cuts */
+	height: 105dvh; /* nicht 100%, sonst kein y-scroll -> bottom-cuts */
 	justify-content: center; 
 	align-items: flex-start; /* nicht mehr center, sonst top-bottom-cuts bis 400%-zoom again iykyk*/
 	overflow-x: hidden; /* oder auto - NICHT visible, sonst kein y-scroll -> bottom-cuts*/
 	overflow-y: visible; /* oder auto - das einzige Scroll, das wir innerhalb wollen!! */
 
-	padding-top: 20px; 
+	padding-top: 0px;  
 }
 
 
