@@ -85,6 +85,7 @@
 			// Ansonsten:
 			} else if (!locked[i]) {										//wenn bei locked nicht auf true, dann:
 				werte[i] = Math.floor(Math.random() * 6) + 1;				//random Abrundwert zwischen 0...5 +1 -> 1...6
+				//werte[i] = 3;												//schneller Test für 5er-Pasch
 			}
 
 		
@@ -117,7 +118,8 @@
 		// SPECIAL: Große-Straße prüfen
 		checkStrasse();
 
-		
+		// SPECIAL: 5er-Pasch prüfen
+		checkPasch();
 	}
 
 
