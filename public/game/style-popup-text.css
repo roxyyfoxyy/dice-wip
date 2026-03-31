@@ -63,6 +63,92 @@
 
 
 
+/* ************************************************
+   PUNKTE-POPUP ANIMATION (wie HP-Bonus)
+*************************************************/
+
+.punkte-popup {
+    position: absolute;
+    
+    left: 102%;      /* rechts neben der Punkte-Anzeige */
+    pointer-events: none;
+
+    font-family: 'VT323', monospace;
+    color: #7bbd7b;  /* grün wie HP-Bonus */
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    opacity: 0;     
+    white-space: nowrap; 
+}
+
+.punkte-popup.animation {
+    animation-name: bonus-effect-hp;
+    animation-duration: 0.7s;
+    animation-fill-mode: forwards;
+}
+
+/* gleiche Keyframes wie HP-Bonus */
+@keyframes bonus-effect {
+    0% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.9);
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-18px) scale(1.05);
+    }
+}
 
 
 
+/* ************************************************
+   MINUS-HP-POPUP ANIMATION
+*************************************************/
+
+.hp-popup {
+	position: absolute;
+    
+    left: 102%;      /* rechts neben der Punkte-Anzeige */
+    pointer-events: none;
+
+    font-family: 'VT323', monospace;
+    color: #ff6b6b;  
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    opacity: 0;     
+    white-space: nowrap;
+
+}
+
+.hp-popup.animation {
+    animation-name: bonus-effect-hp;
+    animation-duration: 0.7s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes bonus-effect-hp {
+    0% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.9);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-18px) scale(1.05);
+    }
+}

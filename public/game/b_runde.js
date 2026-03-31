@@ -210,6 +210,9 @@
 			plusPunkte(gegner.punkte);
 			minusGegnerCounter(1); 
 			gameState.schonAngegriffen = true
+
+			// ANIMATION: für Punkte
+			showPunktePopup("+" + gegner.punkte);
 			
 			
 
