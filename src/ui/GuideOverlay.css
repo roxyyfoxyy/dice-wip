@@ -5,7 +5,7 @@
 
 
 .guide-overlay {
-    position: absolute;
+    position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.75);
 
@@ -265,14 +265,6 @@
     margin-top: 30px;
 }
 
-.guide-button-wrap {
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
 
 .guide-window button {
     position: relative;

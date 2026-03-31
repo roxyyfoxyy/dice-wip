@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./GuideOverlay.css";
 
 import enemyA from "../assets/guide/enemyA.png";
@@ -11,9 +12,31 @@ import kombi from "../assets/guide/kombi.png";
 
 
 export default function GuideOverlay({ onClose }) {
+
+  /* Transition */
+  const [closing, setClosing] = useState(false);
+
+  const handleClose = () => {
+    setClosing(true);
+
+    setTimeout(() => {
+      onClose();
+    }, 250);
+  };
+
+
   return (
-    <div className="guide-overlay">
-      <div className="guide-window">
+
+    /* Öffnen/Schließen + Außerhalb-Klick  */
+    <div
+      className={`guide-overlay ${closing ? "overlay-exit" : "overlay-enter"}`}
+      onClick={handleClose}
+    >
+      <div
+        className={`guide-window ${closing ? "window-exit" : "window-enter"}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+
 
         <h1>GUIDE</h1>
 
@@ -283,7 +306,7 @@ export default function GuideOverlay({ onClose }) {
 
         </div>
 
-        <button className="guide-close" onClick={onClose}>
+        <button className="guide-close" onClick={handleClose}>
           CLOSE
         </button>
 

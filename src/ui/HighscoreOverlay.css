@@ -3,9 +3,9 @@
    ************************************************ */
 
 .highscore-overlay {
-    position: absolute;
+    position: fixed;
     inset: 0;
-    background: #0a0f0a;
+    background: rgba(0, 0, 0, 0.75);
 
     display: flex;
     justify-content: center;
@@ -15,12 +15,18 @@
 }
 
 .highscore-window {
+    width: min(600px, 90vw);
+    max-height: 85vh;
+
     background: #141914;
     border: 2px solid #4a7a4a;
     padding: 30px 80px 30px 80px;
-    text-align: center;
-
     box-shadow: 0 0 40px #4a7a4a66;
+
+    padding: clamp(30px, 5vw, 60px);
+    overflow-y: auto;
+
+    text-align: center;
 }
 
 /* ************************************************
@@ -95,12 +101,14 @@
    BUTTON-DESIGN
    ************************************************ */
 
+
 .highscore-window button {
 
     position: relative;
 
     width: 200px;
     height: 60px;
+    margin-bottom: 8px;  /* gap*/
 
     background: #0a0f0a;
     border: 1px solid #4a7a4a4d;

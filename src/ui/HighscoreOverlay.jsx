@@ -13,9 +13,29 @@ export default function HighscoreOverlay({ onClose }) {
     setScores(getHighscores());
   }, []);
 
+
+  /* Transition */
+  const [closing, setClosing] = useState(false);
+  const handleClose = () => {
+    setClosing(true);
+
+    setTimeout(() => {
+      onClose();
+    }, 250);
+  };
+
+
+
   return (
-    <div className="highscore-overlay">
-      <div className="highscore-window">
+    /* Öffnen/Schließen + Außerhalb-Klick  */
+    <div
+      className={`highscore-overlay ${closing ? "overlay-exit" : "overlay-enter"}`}
+      onClick={handleClose}
+    >
+      <div
+        className={`highscore-window ${closing ? "window-exit" : "window-enter"}`}
+        onClick={(e) => e.stopPropagation()}
+      >
 
         <h1>HIGHSCORES</h1>
 
@@ -28,8 +48,8 @@ export default function HighscoreOverlay({ onClose }) {
           ))}
         </ol>
 
-        <button onClick={onClose}>
-          SCHLIESSEN
+        <button onClick={handleClose}>
+          CLOSE
         </button>
 
       </div>

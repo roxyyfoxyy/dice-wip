@@ -5,6 +5,9 @@ import GameOverOverlay from "./ui/GameOverOverlay";
 import GameCompleteOverlay from "./ui/GameCompleteOverlay";
 import HighscoreOverlay from "./ui/HighscoreOverlay";
 import GuideOverlay from "./ui/GuideOverlay";
+import CreditsOverlay from "./ui/CreditsOverlay";
+
+import "./ui/transition.css";
 
 export default function App() {
   const [scene, setScene] = useState("menu");
@@ -15,9 +18,8 @@ export default function App() {
   const [remainingHP, setRemainingHP] = useState(0);
 
   const [showHighscores, setShowHighscores] = useState(false);
-
-  // FÜRS MENÜ / HOMEPAGE
   const [showGuide, setShowGuide] = useState(false);
+  const [showCredits, setShowCredits] = useState(false);
 
   const [restartKey, setRestartKey] = useState(0);
   
@@ -52,7 +54,12 @@ export default function App() {
   return (
 
     
-    <GameWindow>
+    <GameWindow
+      onOpenMenu={() => setScene("menu")}
+      onOpenHighscores={() => setShowHighscores(true)}
+      onOpenGuide={() => setShowGuide(true)}
+      onShowCredits={() => setShowCredits(true)}
+    >
       
       
     
@@ -61,6 +68,7 @@ export default function App() {
           onStart={() => setScene("game")} 
           onShowHighscores={() => setShowHighscores(true)}
           onShowGuide={() => setShowGuide(true)}
+          onShowCredits={() => setShowCredits(true)}
         />
       )}
 
@@ -142,6 +150,11 @@ export default function App() {
       )}
 
 
+      {showCredits && (
+        <CreditsOverlay
+          onClose={() => setShowCredits(false)}
+        />
+      )}
 
 
 
