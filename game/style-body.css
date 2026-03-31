@@ -25,6 +25,12 @@ EINZELOPFER
 	
 	- border + text button:hover	#4a7a4a 			//so leuchtender (bloß nicht auch #6aff6a55 zuuu viel glow xD)
 
+	- top/bottombar					#0a0f0af2
+	- logo border					#4a7a4a
+	- logo shadow/glow				#4a7a4a66			//wie bei home, box-shadow etc. im Menü
+	- logo hover					#4a7a4a
+	- button glitch glow hover		#6a9a6a & 4a7a4a	//auch bei dropdown text-hover
+
 */
 
 
