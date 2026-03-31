@@ -152,6 +152,55 @@
 			return { success: true, slot: slot };
 		}
 
+
+		// SPECIAL: 5er-Pasch aktiv? -> direkt Treffer + weiterer Gegner
+		if (gameState.paschActive) {
+			gameState.paschActive = false; // nur einmal pro Pasch
+
+			// 1. Besiege Gegner der Wahl
+			const popup = document.querySelector(".popup-text");
+		
+
+			// 2. Verzögerung für Zusatz-Gegner
+			setTimeout(() => {
+
+				// zufälligen anderen aktiven Gegner wählen
+				const otherSlots = aktiveGegner
+					.map((g, i) => i)
+					.filter(i => i !== slot && aktiveGegner[i] != null);
+
+				if (otherSlots.length > 0) {
+					const randomSlot = otherSlots[Math.floor(Math.random() * otherSlots.length)];
+					const gegnerKarte = document.getElementById("gegner" + (randomSlot + 1));
+
+					// Animation + Nachrücken
+					gegnerKarte.classList.add("beat");
+					setTimeout(() => {
+
+						gegnerKarte.classList.remove("beat");
+						nachruecken(randomSlot);
+
+						// ANIMATION: Kettenagriff
+						if (popup) {
+							popup.textContent = "Kettenagriff!";
+							popup.classList.remove("animation");
+							void popup.offsetWidth;
+							popup.classList.add("animation");
+						}
+
+						saveGameState();
+
+					}, 800);
+				}
+			}, 1000);
+
+			return { success: true, slot: slot };
+		}
+
+
+
+
+
 		// 3. Prüfe, ob User matched -> weil dann nachruecken
 		if (match(gegner.kombi)) {
 			return { success: true, slot: slot }; 				// Treffer -> Erfolg

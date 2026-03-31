@@ -211,8 +211,7 @@ export default function GuideOverlay({ onClose }) {
                   <small> <br/>
                     Fünf gleiche Würfelaugen entfesseln enorme Wucht.
                     Du schleuderst einen beliebigen Gegner vom Feld – 
-                    und reißt dabei einen weiteren (einen der schwächeren) Gegner gleich mit.
-                    Einmal pro Runde einsetzbar.
+                    und reißt dabei einen weiteren Gegner dank Kettenangriff gleich mit.
                   </small>
               </div>
             </div>

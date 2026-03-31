@@ -42,7 +42,7 @@ function checkHeal() {
 
 
 //******************* FUNKTION: checkStrasse() *******************//
-//***********************************************************//
+//****************************************************************//
 
 function checkStrasse() {
     // Würfelwerte sortieren & nulls entfernen
@@ -57,12 +57,47 @@ function checkStrasse() {
        (gewuerfelt.every((v,i) => v === strasse1[i]) || gewuerfelt.every((v,i) => v === strasse2[i]))) {
         gameState.strasseActive = true;
 
-        // Optional: Animation/Popup
+        // ANIMATION: Große Straße! Wähle beliebigen Gegner!
         const popup = document.querySelector(".popup-text");
         if (popup) {
             popup.textContent = "Große Straße! Wähle beliebigen Gegner!";
+
+            // Animation-Reset (für wenn vorher schon aktiviert)
             popup.classList.remove("animation");
-            void popup.offsetWidth;
+            void popup.offsetWidth;                 // Reflow Trick (damit Browser remove auch wirklich erkennt!)
+
+            // Animation-Start
+            popup.classList.add("animation");
+        }
+
+        saveGameState();
+    }
+}
+
+
+//******************* FUNKTION: checkPasch() ******************//
+//***********************************************************//
+
+function checkPasch() {
+    const counts = {};
+    werte.forEach(v => {
+        if (v !== null) counts[v] = (counts[v] || 0) + 1;
+    });
+
+    // Prüfen, ob 5 gleiche Zahlen vorkommen
+    if (Object.values(counts).includes(5)) {
+        gameState.paschActive = true;
+
+        // ANIMATION: 5er-Pasch Wähle beliebigen Gegner!
+        const popup = document.querySelector(".popup-text");
+        if (popup) {
+            popup.textContent = "5er-Pasch! Wähle beliebigen Gegner!";
+            
+            // Animation-Reset (für wenn vorher schon aktiviert)
+            popup.classList.remove("animation");
+            void popup.offsetWidth;                 // Reflow Trick (damit Browser remove auch wirklich erkennt!)
+            
+             // Animation-Start
             popup.classList.add("animation");
         }
 
