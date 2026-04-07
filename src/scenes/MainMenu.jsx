@@ -8,9 +8,9 @@ export default function MainMenu({ onStart, onShowHighscores, onShowGuide, onSho
           <div className="box-pic" />
           <div className="box-linien" />
           <div className="box-text">
-            <h1 className="box-title">GAME<br />NAME</h1>
+            <h1 className="box-title">ROLL &<br/>CONQUER</h1>
             <p className="box-subtitle">
-              lorem ipsum logikgatter blabla // the game
+              master the dice, defeat the odds //
             </p>
           </div>
         </div>

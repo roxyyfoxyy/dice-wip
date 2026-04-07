@@ -38,7 +38,7 @@ export default function GameWindow({ children, onOpenMenu, onOpenHighscores, onO
                 className="dropdown-item"
                 onClick={onOpenMenu}
               >
-                MAIN MENU
+                STARTSEITE
               </button>
 
 
