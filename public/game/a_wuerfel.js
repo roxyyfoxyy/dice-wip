@@ -163,10 +163,10 @@
 
 	function toggleLock(index) {											//index = welcher Würfel gerade angeklickt wurde
 
-		// ZWISCHEN: für Special-Gegner-FREEZE
+		// SPECIAL: durch FREEZE-Gegner locked -> no effect
 		if (index === frozenIndex) return;
 	
-		// 1. Invertieren: wenn dieser Angeklickte auf locked-true, dann jetzt false/frei 
+		// 1. Invertieren: wenn der Angeklickte auf locked-true, dann jetzt false/frei 
 		// und wenn auf locked-false/frei, dann jetzt true
 		locked[index] = !locked[index];											
 
@@ -179,6 +179,9 @@
 		// Um locks nach Refresh zu behalten
 		saveGameState();
 		
+	}
+
+
 		/** ERKLÄRUNG toggle()
 		kann Klasse adden oder entfernen
 		hier: Klasse "locked", Bedingung locked[index]
@@ -186,4 +189,3 @@
 		wenn locked[index] false -> Klasse "locked" wird entfernt -> Remove-Klick -> dann jz in index class="wuerfel"
 		Design = .wuerfel .locked
 		**/
-	}

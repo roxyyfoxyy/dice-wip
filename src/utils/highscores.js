@@ -1,10 +1,7 @@
 
-//*************'************** HIGHSCORE ***************************//
-//***** Gegnerwürfel mit Userwürfeö vergleichen, Erfolg- & Misserfolg ******//
-//**************************************************************************//
-
-
-
+//*************'***************** HIGHSCORE ******************************//
+//****************** Speichern + Sortieren + max. 10 ********************//
+//***********************************************************************//
 
 
 const STORAGE_KEY = "highscores";
@@ -32,16 +29,22 @@ export function saveHighscore(score) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(topScores));
 }
 
-
-// Datum + Uhrzeit formatieren
+// DATUM + UHRZEIT
 export function formatDate(timestamp) {
-
   const d = new Date(timestamp);
 
-  return d.toLocaleDateString("de-DE") + 
-         " " + 
-         d.toLocaleTimeString("de-DE", {
-            hour: "2-digit",
-            minute: "2-digit"
-         });
+  // Tag, Monat, Jahr basteln -> mit führender 0!!, ZWEIgliedrig für day/month
+  const day = String(d.getDate()).padStart(2, '0'); 
+  const month = String(d.getMonth() + 1).padStart(2, '0');  
+  const year = d.getFullYear(); 
+
+  const date = `${day}.${month}.${year}`;  
+
+  // Uhrzeit  -> auch zweigliedrig
+  const time = d.toLocaleTimeString("de-DE", {
+    hour: "2-digit",
+    minute: "2-digit"
+  });
+
+  return `${date} ${time}`;
 }
