@@ -116,21 +116,21 @@
 
 	// Erstelle mit addGegner-Logik vom Typ "..." x-viele Gegner, mit Punktewert xy
 	// der Wert/die Kombi soll aus create...() kommen (return [...])
-	addGegner("EasyA", 6, createEasyA, 1);
-	addGegner("EasyB", 6, createEasyB, 1);
+	addGegner("EasyA", 5, createEasyA, 1);
+	addGegner("EasyB", 5, createEasyB, 1);
 
-	addGegner("MediumA", 5, createMediumA, 3);
-	addGegner("MediumB", 5, createMediumB, 3);
+	addGegner("MediumA", 3, createMediumA, 4);
+	addGegner("MediumB", 3, createMediumB, 4);
 
-	addGegner("DifficultA", 2, createDifficultA, 5);
-	addGegner("DifficultB", 4, createDifficultB, 5);
-	addGegner("DifficultC", 3, createDifficultC, 5);
+	addGegner("DifficultA", 1, createDifficultA, 5);
+	addGegner("DifficultB", 1, createDifficultB, 5);
+	addGegner("DifficultC", 1, createDifficultC, 5);
 
-	addGegner("Freeze", 5, createFreezeA, 2, "/dice-wip/images/freeze.png");
-	addGegner("Freeze", 5, createFreezeB, 2, "/dice-wip/images/freeze.png");
+	addGegner("Freeze", 2, createFreezeA, 2, "/dice-wip/images/freeze.png");
+	addGegner("Freeze", 2, createFreezeB, 2, "/dice-wip/images/freeze.png");
 
-	addGegner("Steal", 5, createStealA, 2, "/dice-wip/images/steal.png");
-	addGegner("Steal", 5, createStealB, 2, "/dice-wip/images/steal.png");	
+	addGegner("Steal", 1, createStealA, 3, "/dice-wip/images/steal.png");
+	addGegner("Steal", 1, createStealB, 3, "/dice-wip/images/steal.png");	
 
 
 
