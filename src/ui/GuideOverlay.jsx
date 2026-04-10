@@ -45,24 +45,25 @@ export default function GuideOverlay({ onClose }) {
           {/* EINLEITUNG */}
           <div className="guide-section">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-              Fusce aliquam lorem lorem, vestibulum lobortis nisl tempor quis. 
-              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices 
-              posuere cubilia curae; Donec non augue mattis, mattis ex et, 
-              facilisis diam. Mauris pulvinar lobortis ante, ut feugiat libero 
-              ornare vitae. Sed pellentesque, leo sit amet consequat placerat, 
-              urna dolor faucibus metus, sed dictum libero ex in magna. Curabitur 
-              tincidunt egestas ipsum, ac dictum risus porttitor nec. Praesent 
-              lacinia purus non ornare ullamcorper.
+              Irgendetwas ist gewaltig schiefgelaufen. Was einst als kontrolliertes Experiment begann, 
+              hat sich plötzlich jeglicher Kontrolle entzogen. Die Systeme sind kollabiert, Sicherheitsbarrieren
+              sind gefallen und aus den Verschmelzungen von Biologie und Technologie sind neue Kreaturen entstanden: 
+              instabil, fehlerhaft und... unberechenbar. Sie folgen ihren eigenen verzerrten Mustern und gefährden alles,
+              was ihnen in den Weg kommt. 
+              Als Rekrut der einzigen verbliebenden Einheit bist du die letzte Instanz zwischen ihnen und dem endgültigen Chaos, 
+              die verzweifelt versuchst den letzten Strang an Kontrolle zurückzugewinnen.
             </p>
+              Handle, bevor nichts mehr zu retten ist!
+            
           </div>
 
 
           {/* AUFBAU */}
           <div className="guide-section">
             
-            Doch keine Sorge - sie alle sind verwundbar!
-            Jeder Gegner besitzt eine eigene Kombination aus Würfeln, mit der sich dieser besiegen lässt. <br/><br/>
+            Selbst in diesem Chaos findet sich eine Konstante: Muster. 
+            Jede Kreatur besitzt nämlich eine definierte Schwachstelle, die sich gegen sie verwenden lässt 
+            - dargestellt als Kombination aus Würfeln. <br/><br/>
             Zum Beispiel:
             
             {/* 3 Gegner-Beispiele */}
@@ -294,7 +295,7 @@ export default function GuideOverlay({ onClose }) {
               Sollten mitten im Spiel deine <b>Health-Points auf 0</b> fallen, ist der <b>Kampf verloren</b>,
               der Feind hat gewonnen und es werden keinerlei Punkte gewertet.
               <br/><br/>
-              Enttäusche uns nicht, Soldat!
+              Enttäusche uns nicht, Rekrut!
               Beschütze die Menschheit, bezwinge die Kreaturen und knacke den nächsten Highscore.
               Viel Erfolg!
             </p>

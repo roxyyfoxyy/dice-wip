@@ -28,16 +28,16 @@ export default function CreditsOverlay({ onClose }) {
         <div className="credits-grid">
 
           <div className="credits-card">
-            <h2>Project</h2>
+            <h2>Projekt</h2>
             <p>
               ROLL & CONQUER<br/>
-              Created for the university module<br/>
+              Entwickelt im Rahmen des TH-OWL-Moduls<br/>
               <i>Software Design</i>
             </p>
           </div>
 
           <div className="credits-card">
-            <h2>Developers</h2>
+            <h2>Entwickler</h2>
             <p>
               Niklas Eichstädt<br/>
               Roksana Strzelecki
@@ -47,13 +47,13 @@ export default function CreditsOverlay({ onClose }) {
           <div className="credits-card">
             <h2>Assets</h2>
             <p>
-              xxxx<br/>
-              xxxx
+              Bilder: Unsplash & Pexels <br/>
+              Gegnerdesign: KI-generierte Grafiken
             </p>
           </div>
 
           <div className="credits-card">
-            <h2>Ressources</h2>
+            <h2>Technologien</h2>
             <p>
               React & Vite<br/>
               JavaScript<br/>
@@ -63,7 +63,7 @@ export default function CreditsOverlay({ onClose }) {
 
         </div>
 
-        <h3>Thanks for playing!</h3>
+        <h3>Danke fürs Spielen!</h3>
 
         <div className="credits-footer">
 

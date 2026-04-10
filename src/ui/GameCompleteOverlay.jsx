@@ -89,10 +89,14 @@ export default function GameCompleteOverlay({ punkte, hp, onRestartGame, onBackT
     <div className="gamecomplete-overlay">
       <div className="gamecomplete-window">
 
-        <h1>CONGRATULATIONS, <br />
-        SUPERSTAR!</h1>
+        <h1>MISSION<br />
+        ABGESCHLOSSEN!</h1>
 
         <div className="gamecomplete-text">
+            <br />
+            Gefahr neutralisiert. 
+            Stabilitätswert steigend.<br />
+            Deine Leistung wird der Systemanalyse übergeben:<br />
             <br />
             Punkte: <span className={finalGlow ? "final-score" : ""}>
               {displayScore}

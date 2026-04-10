@@ -1,6 +1,8 @@
 import "./GameWindow.css";
 import { useState } from "react";
 
+import logoPic from "../assets/logo.jpg";
+
 export default function GameWindow({ children, onOpenMenu, onOpenHighscores, onOpenGuide }) {
   
   
@@ -23,7 +25,7 @@ export default function GameWindow({ children, onOpenMenu, onOpenHighscores, onO
           <div className="topbar-text">
 
             <img
-              src="https://i.pinimg.com/736x/05/74/bd/0574bd46bf26c5c9933e6fa293695c93.jpg"
+              src={logoPic}
               className="logo-pic"
               onClick={onOpenMenu}
             />

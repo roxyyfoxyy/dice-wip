@@ -7,11 +7,12 @@ export default function GameOverOverlay({ onRestartGame, onBackToMenu, onShowHig
     <div className="gameover-overlay">
       <div className="gameover-window">
 
-        <h1>GAME OVER</h1>
+        <h1>SYSTEMABBRUCH</h1>
 
         <div className="gameover-text">
-            Du hast verloreeeeeen trololol. <br />
-            All deine Punkte wurden verschlungen. Versuche es erneut!
+            Deine Lebenssignale sind erloschen. <br />
+            Die Kreaturen haben die Kontrolle übernommen. <br /><br />
+            Alle gesammelten Daten wurden verworfen.
         </div>
 
         <div className="gameover-button-wrap">

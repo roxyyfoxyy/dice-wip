@@ -71,16 +71,20 @@
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
 		// Neuer Gegner aus pool.js
 		const neu = randomGegner();
+
+		
+		// WIP: Letzte 4 verschwinden nach und nach -> Problem aber: Animation!!
+		/*
+		// Neuer Gegner aus pool.js
+		let neu = null;
+
+		// aber nur, wenn NICHT die 4 last ones
+		if (gameState.gegnerCounter >= 4) {
+			neu = randomGegner();
+		}
+		*/
 
 		if (neu) {																	
 			aktiveGegner[slotIndex] = neu;								// Wenn vorhanden, dann neuer aktiveGegner
@@ -118,9 +122,24 @@
 			
 			
 			updateGegnerDesign(slotIndex + 1, neu.kombi);				// und Gegnerwürfel [später auch Karte) updaten
+		
 		} else {
-			aktiveGegner[slotIndex] = null;								// ansonsten leer, kein Nachschub
-			console.log("Keine Gegner mehr im Pool!");
+			// Keine Gegner left 
+			aktiveGegner[slotIndex] = null;
+
+
+			/* WIP: letzte 4 verschwinden nach und nach -> Problem: Animation!! 
+
+			// nach und nach slots leeren (letzte vier Gegners)
+			const karte = document.getElementById("gegner" + (slotIndex + 1));
+			const container = document.querySelector(`#gegner${slotIndex + 1} + .gw-container`);
+
+			// einfach css verstecken (Karte + Würfel)
+			karte.style.visibility = "hidden";
+			if (container) {
+				container.style.visibility = "hidden";
+			}
+			*/
 		}
 	}
 

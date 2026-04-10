@@ -5,9 +5,9 @@
 
 
 .gameover-overlay {
-    position: absolute;
+    position: fixed;
     inset: 0;
-    background: #0a0f0a;
+    background: rgba(0, 0, 0, 0.35);    /* mit opacity */
 
     display: flex;
     justify-content: center;
