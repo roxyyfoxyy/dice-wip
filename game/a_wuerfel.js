@@ -163,6 +163,11 @@
 
 	function toggleLock(index) {											//index = welcher Würfel gerade angeklickt wurde
 
+		
+		// Erst beim ersten Wurf (damit FREEZE-Gegner nicht zu cheat-gap führt!)
+		if (!firstRollDone) return;
+
+		
 		// SPECIAL: durch FREEZE-Gegner locked -> no effect
 		if (index === frozenIndex) return;
 	

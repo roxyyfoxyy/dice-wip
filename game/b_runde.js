@@ -101,6 +101,7 @@
 		gameState.schonAngegriffen = false;
 		gameState.healUsed = false;
 		gameState.strasseActive = false;
+		firstRollDone = false;
 		updateWurf();		// Wurfanzahl updaten
 
 		// 2. Gehe alle Würfel durch
@@ -222,10 +223,16 @@
 
 			setTimeout(() => {
 				gegnerKarte.classList.remove("beat");
+
+				void gegnerKarte.offsetWidth;
+
 				nachruecken(slot);
+				
+				gegnerKarte.classList.add("spawn");
+
 				saveGameState();	// für Refresh-Save -> HIERHIN! 
 				 					// Sonst nachruecken() mit neuem Gegner nicht in Save-GameState, sondern alter Gegner-Status
-				gegnerKarte.classList.add("spawn");
+				
 			}, 500);
 
 			
