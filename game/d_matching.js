@@ -90,9 +90,9 @@
 			aktiveGegner[slotIndex] = neu;								// Wenn vorhanden, dann neuer aktiveGegner
 			
 			// SPECIAL: FREEZE-Gegner
-			if (neu && neu.typ === "Freeze" && !freezeAktiv) {
-				freezeAktiv = true;
-				frozenIndex = Math.floor(Math.random() * 5);
+			if (neu && neu.typ === "Freeze" && !freezeActive) {
+				freezeActive = true;
+				freezeActive = Math.floor(Math.random() * 5);
 				freezeEnemyId = neu;
 
 				frozenValue = werte[frozenIndex]; // Wert merken von freezed Würfel

@@ -14,7 +14,7 @@
         gameState.locked = locked;
 
         // SPECIAL: FREEZE
-        gameState.freezeAktiv = freezeAktiv;
+        gameState.freezeActive = freezeActive;
         gameState.frozenIndex = frozenIndex;
         gameState.frozenValue = frozenValue;
 
@@ -55,7 +55,7 @@
             gameState.wurfZaehler = parsed.wurfZaehler ?? 0;
             gameState.schonAngegriffen = parsed.schonAngegriffen ?? false;
 
-            gameState.gegnerCounter = parsed.gegnerCounter ?? 8; // Default: 25 - Test: 3
+            gameState.gegnerCounter = parsed.gegnerCounter ?? 25; // Default: 25 - Test: 3
 
             aktiveGegner = parsed.aktiveGegner ?? [];
             gegnerPool = parsed.gegnerPool ?? [];
@@ -64,7 +64,7 @@
             locked = parsed.locked ?? [false,false,false,false,false];
 
             // SPECIAL: FREEZE
-            freezeAktiv = parsed.freezeAktiv ?? false;
+            freezeActive = parsed.freezeActive ?? false;
             frozenIndex = parsed.frozenIndex ?? null;
             frozenValue = parsed.frozenValue ?? null;
 
@@ -80,7 +80,7 @@
             gameState.schonAngegriffen = false;
             gameState.gameOver = false;
 
-            gameState.gegnerCounter = 8; // Default: 25 - Test: 3 - SPÄTER gameState.gegnerCounter = gegnerPool.length;
+            gameState.gegnerCounter = 25; // Default: 25 - Test: 3 - SPÄTER gameState.gegnerCounter = gegnerPool.length;
 
             aktiveGegner = [];
             //gegnerPool = [];  //weg, sonst Gegner-Würfel clear
@@ -102,7 +102,7 @@
 
             // Lock & Freeze & Steal wieder korrekt setzen
             w.classList.toggle("locked", locked[i]);
-            w.classList.toggle("frozen", i === frozenIndex && freezeAktiv);
+            w.classList.toggle("frozen", i === frozenIndex && freezeActive);
             w.classList.toggle("stolen", i === stolenIndex && stealAktiv);
 
             if (werte[i] == null) {

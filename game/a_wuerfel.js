@@ -14,7 +14,7 @@
 	let werte = [null, null, null, null, null];
 
 
-	let freezeAktiv = false;
+	let freezeActive = false;
 	let frozenIndex = null;
 	let freezeEnemyId = null;
 	let firstRollDone = false;
@@ -75,7 +75,7 @@
 		for (let i = 0; i < 5; i++) {										//gehe alle Würfel 0-4 durch im Array locked
 			
 			// SPECIAL: ggf. Würfel einfrieren (aktiviert durch Gegner)
-			if (i === frozenIndex && freezeAktiv) {
+			if (i === frozenIndex && freezeActive) {
 				frozenValue = werte[i];
 
 			// SPECIAL: ggf. Würfel stehlen (aktiviert durch Gegner)
@@ -139,7 +139,7 @@
 			}
 
 			// Frozen-Status korrekt setzen
-			if (i === frozenIndex && freezeAktiv) {
+			if (i === frozenIndex && freezeActive) {
 				w.classList.add("frozen");
 			} else {
 				w.classList.remove("frozen");
