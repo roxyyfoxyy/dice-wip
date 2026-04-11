@@ -92,7 +92,7 @@
 			// SPECIAL: FREEZE-Gegner
 			if (neu && neu.typ === "Freeze" && !freezeActive) {
 				freezeActive = true;
-				freezeActive = Math.floor(Math.random() * 5);
+				frozenIndex = Math.floor(Math.random() * 5);
 				freezeEnemyId = neu;
 
 				frozenValue = werte[frozenIndex]; // Wert merken von freezed Würfel
@@ -192,11 +192,21 @@
 					const randomSlot = otherSlots[Math.floor(Math.random() * otherSlots.length)];
 					const gegnerKarte = document.getElementById("gegner" + (randomSlot + 1));
 
+					const extraGegner = aktiveGegner[randomSlot];
+
 					// Animation + Nachrücken
 					gegnerKarte.classList.add("beat");
 					setTimeout(() => {
 
 						gegnerKarte.classList.remove("beat");
+
+						// So PASCH auch Effekt bruh lolol
+						plusPunkte(extraGegner.punkte);
+						minusGegnerCounter(1);
+
+						// ANIMATION: für Bonus-Punkte
+						showPunktePopup("+" + extraGegner.punkte);
+
 						nachruecken(randomSlot);
 
 						// ANIMATION: Kettenagriff
