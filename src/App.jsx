@@ -11,9 +11,10 @@ import "./ui/transition.css";
 
 export default function App() {
   const [scene, setScene] = useState("menu");
-  const [gameOver, setGameOver] = useState(false);
 
+  const [gameOver, setGameOver] = useState(false);
   const [gameComplete, setGameComplete] = useState(false);
+
   const [finalScore, setFinalScore] = useState(0);
   const [remainingHP, setRemainingHP] = useState(0);
 
@@ -89,13 +90,13 @@ export default function App() {
           <GameOverOverlay
 
             onRestartGame={() => {
-              localStorage.removeItem("gameState");     //Daten löschen
+              localStorage.removeItem("gameState");     // Daten löschen
               setGameOver(false);
               setRestartKey(prev => prev + 1);          // iframe neu mounten
             }}
           
             onBackToMenu={() => {
-              localStorage.removeItem("gameState");    //Daten löschen
+              localStorage.removeItem("gameState");    // Daten löschen
               setGameOver(false);
               setScene("menu");                        //switch zum Menü
             }}

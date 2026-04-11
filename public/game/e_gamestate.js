@@ -11,7 +11,7 @@ window.gameState = {
     schonAngegriffen: false,
     gameOver: false,
 
-    gegnerCounter: 8,   //Default: 25, Test: 3
+    gegnerCounter: 25,   //Default: 25, Test: 3
 
     aktiveGegner: [],
     gegnerPool: [],
@@ -21,7 +21,7 @@ window.gameState = {
 
 
     // SPECIAL: FREEZE & STEAL
-    freezeAktiv: false,
+    freezeActive: false,
     frozenIndex: null,
     frozenValue: null,
 
@@ -35,3 +35,5 @@ window.gameState = {
     strasseActive: false,
 
 };
+
+

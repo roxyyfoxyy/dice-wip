@@ -113,7 +113,7 @@
 			}
 
 			// Würfelaufgen-Werte leeren (damit bei Refresh nicht last-saved wieder angezeigt wird!!)
-			if (i === frozenIndex && freezeAktiv) {
+			if (i === frozenIndex && freezeActive) {
 				werte[i] = frozenValue; // Wert behalten!
 			} else {
 				werte[i] = null;
@@ -197,7 +197,7 @@
 
 			// ZWISCHEN: für Special-Gegner-FREEZE
 			if (gegner.typ === "Freeze") {
-				freezeAktiv = false;
+				freezeActive = false;
 				frozenIndex = null;
 				freezeEnemyId = null;
 				frozenValue = null;

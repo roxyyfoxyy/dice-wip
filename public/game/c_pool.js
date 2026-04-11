@@ -204,8 +204,8 @@
 
 
 			// SPECIAL: FREEZE zum Start korrekt aktiviere
-			if (neu && neu.typ === "Freeze" && !freezeAktiv) {
-				freezeAktiv = true;
+			if (neu && neu.typ === "Freeze" && !freezeActive) {
+				freezeActive = true;
 				frozenIndex = Math.floor(Math.random() * 5);
 				freezeEnemyId = neu;
 

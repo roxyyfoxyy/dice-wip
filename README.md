@@ -1,5 +1,5 @@
 # ROLL & CONQUER
-**Master the Dice, Defeat the Odds**
+**Ein würfelbasiertes Karten-Kampfspiel**
 
 ROLL & CONQUER ist ein Projekt, das im Rahmen des Moduls *Software Design* im Studiengang Technische Informatik der TH OWL Lemgo entstanden ist.
 Ziel war die Entwicklung einer interaktiven Webanwendung unter Verwendung moderner Technologien wie React.
@@ -17,3 +17,7 @@ https://roxyyfoxyy.github.io/roll-and-conquer/
 - React
 - JavaScript
 - HTML / CSS
+
+## Assets
+- Bilder: Unsplash & Pexels
+- Gegnerdesign: KI-generierte Grafiken (vorerst)

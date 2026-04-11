@@ -73,7 +73,7 @@ export default function GameCompleteOverlay({ punkte, hp, onRestartGame, onBackT
 
 
     // 3. FINALER PUNKTESTAND -> EFFEKT
-    // 3. Finalen Punktstand als Hoghscore speichern
+    // Finalen Punktstand als Highscore speichern
     if (phase === "final") {
       setFinalGlow(true);
 
