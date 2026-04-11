@@ -15,8 +15,8 @@
 .stapel {
 	position: relative;		/* evtl. abändern, damit ES NICHT AUS DEM SCREEN FLUTSCHT???*/
 	
-	width: 200px;
-	height: 300px;
+	width: 220px;
+	height: 320px;
 
 	background: #141914d9;
 	border: 2px solid #4a7a4a4d;
@@ -33,8 +33,9 @@
 
 	font-size: 70px;
 
-	padding: 113px 50px 113px 50px; /* oben rechts unten links */
+	padding: 123px 50px 123px 50px; /* oben rechts unten links */
 	/* 300px Gesamt - 70px font-size - 2x2px border = 113px */
+	/* 320px Gesamt - 70px font-size - 2x2px border = 123px */
 
 	border-radius: 50%;
 	border: 2px solid #4a7a4a4d;

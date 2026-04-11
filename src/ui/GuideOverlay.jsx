@@ -4,10 +4,15 @@ import "./GuideOverlay.css";
 import enemyA from "../assets/guide/enemyA.png";
 import enemyB from "../assets/guide/enemyB.png";
 import enemyC from "../assets/guide/enemyC.png";
-import lock from "../assets/guide/lock.png";
-import angreifen from "../assets/guide/angreifen.png";
-import gegner from "../assets/guide/gegner.png";
-import kombi from "../assets/guide/kombi.png";
+import lock from "../assets/guide/lock.gif";
+import angreifen from "../assets/guide/angreifen.gif";
+import freeze from "../assets/guide/freeze.png";
+import steal from "../assets/guide/steal.png";
+import strasse1 from "../assets/guide/strasse1.png";
+import strasse2 from "../assets/guide/strasse2.png";
+import pasch from "../assets/guide/pasch.png";
+import augensumme1 from "../assets/guide/augensumme1.png";
+import augensumme2 from "../assets/guide/augensumme2.png";
 
 
 
@@ -71,17 +76,14 @@ export default function GuideOverlay({ onClose }) {
 
               <div className="trio-pic">
                 <img src={enemyA} /> <br/>
-                NAME
               </div>
 
               <div className="trio-pic">
-                <img src={enemyA} /> <br/>
-                NAME
+                <img src={enemyB} /> <br/>
               </div>
 
               <div className="trio-pic">
-                <img src={enemyA} /> <br/>
-                NAME
+                <img src={enemyC} /> <br/>
               </div>
 
             </div>
@@ -167,32 +169,22 @@ export default function GuideOverlay({ onClose }) {
             <div className="guide-trio">
 
               <div className="trio-pic">
-                <img src={gegner} />
+                <img src={steal} />
                 <p>
                   <small>
-                  NAME stiehlt einen deiner Würfel.
+                  Dieser Schelm stiehlt einen deiner Würfel.
                   Besiege ihn, um deine Waffe vollständig zurückzuerlangen.
                   </small>
                 </p>
               </div>
 
               <div className="trio-pic">
-                <img src={gegner} />
+                <img src={freeze} />
                 <p>
                   <small>
-                  NAME friert einen deiner Würfel ein.
+                  Einer deiner Würfel wird eingefroren!
                   Dieser bleibt auf seiner Augenzahl stehen und lässt sich nicht mehr entsperren.
                   Besiege den Schelm, um wieder Kontrolle über alle Würfel zu haben!
-                  </small>
-                </p>
-              </div>
-
-              <div className="trio-pic">
-                <img src={gegner} />
-                <p>
-                  <small>
-                  NAME Lorem ipsum Fähigkeit Lorem ipsum Fähigkeit 
-                  Lorem ipsum Fähigkeit Lorem ipsum Fähigkeit
                   </small>
                 </p>
               </div>
@@ -221,8 +213,8 @@ export default function GuideOverlay({ onClose }) {
 
               <div className="combo-pic">
                 GROßE STRAßE <br/> <br/>
-                <img src={kombi} />
-                <img src={kombi} /> <br/>
+                <img src={strasse1} />
+                <img src={strasse2} /> <br/>
                 <small>
                   Diese Kombi ermöglicht es dir, einmal pro Runde einen beliebigen Gegner deiner Wahl sofort zu besiegen.
                   Wähle geschickt!
@@ -231,7 +223,7 @@ export default function GuideOverlay({ onClose }) {
 
               <div className="combo-pic">
                 5ER-PASCH <br/> <br/>
-                <img src={kombi} />
+                <img src={pasch} />
                   <small> <br/>
                     Fünf gleiche Würfelaugen entfesseln enorme Wucht.
                     Du schleuderst einen beliebigen Gegner vom Feld – 
@@ -246,8 +238,8 @@ export default function GuideOverlay({ onClose }) {
 
                 <div className="combo-25-left">
                   AUGENSUMME 25 <br/> <br/>
-                  <img src={kombi} /> <br/>
-                  <img src={kombi} /> <br/>
+                  <img src={augensumme1} /> <br/>
+                  <img src={augensumme2} /> <br/>
                   [...]  <br/><br/>
                   
                     <small>
