@@ -116,21 +116,21 @@
 
 	// Erstelle mit addGegner-Logik vom Typ "..." x-viele Gegner, mit Punktewert xy
 	// der Wert/die Kombi soll aus create...() kommen (return [...])
-	addGegner("EasyA", 5, createEasyA, 1);
-	addGegner("EasyB", 5, createEasyB, 1);
+	addGegner("EasyA", 5, createEasyA, 1, "/roll-and-conquer/images/easya.png"); // Ratte
+	addGegner("EasyB", 5, createEasyB, 1, "/roll-and-conquer/images/easyb.png"); // Waschbär
 
-	addGegner("MediumA", 3, createMediumA, 4);
-	addGegner("MediumB", 3, createMediumB, 4);
+	addGegner("MediumA", 3, createMediumA, 4, "/roll-and-conquer/images/mediuma.png"); // Adler
+	addGegner("MediumB", 3, createMediumB, 4, "/roll-and-conquer/images/mediumb.png"); // Wolf
 
-	addGegner("DifficultA", 1, createDifficultA, 5);
-	addGegner("DifficultB", 1, createDifficultB, 5);
-	addGegner("DifficultC", 1, createDifficultC, 5);
+	addGegner("DifficultA", 1, createDifficultA, 5, "/roll-and-conquer/images/difficulta.png"); // Bär
+	addGegner("DifficultB", 1, createDifficultB, 5, "/roll-and-conquer/images/difficultb.png"); // Puma
+	addGegner("DifficultC", 1, createDifficultC, 5, "/roll-and-conquer/images/difficultc.png"); // Wildschwein
 
-	addGegner("Freeze", 2, createFreezeA, 2, "/dice-wip/images/freeze.png");
-	addGegner("Freeze", 2, createFreezeB, 2, "/dice-wip/images/freeze.png");
+	addGegner("Freeze", 2, createFreezeA, 2, "/roll-and-conquer/images/freeze.png"); // Ziege
+	addGegner("Freeze", 2, createFreezeB, 2, "/roll-and-conquer/images/freeze.png"); // Ziege
 
-	addGegner("Steal", 1, createStealA, 3, "/dice-wip/images/steal.png");
-	addGegner("Steal", 1, createStealB, 3, "/dice-wip/images/steal.png");	
+	addGegner("Steal", 1, createStealA, 3, "/roll-and-conquer/images/steal.png"); // Echse
+	addGegner("Steal", 1, createStealB, 3, "/roll-and-conquer/images/steal.png"); // Echse
 
 
 
@@ -157,7 +157,7 @@
 
 		// 1. Zufällige Position aus Array gegnerPool
 		const index = Math.floor(Math.random() * gegnerPool.length);		// random Position von 0 bis Anzahl aller Gegner im Pool, die dank addGegner created wurden
-																								// wobei  0 ≤ x < Anzahl, sodass 0, 1, 2, ..., anzahl-1 weil ja Positionen-Indizes != Anzahl-Elemente
+																			// wobei  0 ≤ x < Anzahl, sodass 0, 1, 2, ..., anzahl-1 weil ja Positionen-Indizes != Anzahl-Elemente
 
 		// 2. Gibt Element der gewählten Positionen zurück && entfernt (so KEINE DOPPLUNG)
 		const [gegner] = gegnerPool.splice(index, 1);					// .splice = entfernt im Array ab Pos. "index" GENAU 1 ELEMENT (also genau das random auserwählte)
